@@ -77,7 +77,7 @@
             <!-- Contact Form -->
             <div class="bg-white p-8 rounded-xl shadow-lg" data-aos="fade-left">
                 <h2 class="text-3xl font-bold mb-8">Send Us a Message</h2>
-                <form action="/contact" method="POST" class="space-y-6">
+                <form action="{{ route('contact.store') }}" method="POST" class="space-y-6" id="contactForm">
                     @csrf
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
@@ -118,103 +118,140 @@
     </div>
 </div>
 
+@endsection
+
+@push('styles')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+@endpush
+
+@push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('#project-filters button');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white');
-                btn.classList.add('bg-gray-200');
-            });
-
-            // Add active class to clicked button
-            button.classList.remove('bg-gray-200');
-            button.classList.add('bg-blue-600', 'text-white');
-
-            const filter = button.getAttribute('data-filter');
-
-            projectCards.forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                    // Show matching cards with animation
-                    card.style.display = 'block';
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    
-                    // Trigger animation after a small delay
-                    setTimeout(() => {
-                        card.style.transition = 'all 0.4s ease-in-out';
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    // Hide non-matching cards
-                    card.style.display = 'none';
-                }
-            });
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
     });
 
-    // Initialize AOS animation library
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-    }
-
-    // Form validation and submission handling
-    const contactForm = document.querySelector('form');
+    // Form handling
+    const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // Basic form validation
-            const inputs = contactForm.querySelectorAll('input, textarea');
-            let isValid = true;
+            // Disable submit button
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Sending...';
 
-            inputs.forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    input.classList.add('border-red-500');
-                } else {
-                    input.classList.remove('border-red-500');
-                }
-            });
-
-            if (!isValid) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-
-            // Submit form data
             try {
+                // Validate form
                 const formData = new FormData(contactForm);
-                const response = await fetch('/contact', {
+                const formEntries = Object.fromEntries(formData.entries());
+                
+                // Check required fields
+                for (const [key, value] of Object.entries(formEntries)) {
+                    const input = contactForm.querySelector(`[name="${key}"]`);
+                    if (!value.trim()) {
+                        input.classList.add('border-red-500');
+                        throw new Error(`${key.charAt(0).toUpperCase() + key.slice(1)} is required`);
+                    } else {
+                        input.classList.remove('border-red-500');
+                    }
+                }
+
+                // Validate email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(formEntries.email)) {
+                    contactForm.querySelector('[name="email"]').classList.add('border-red-500');
+                    throw new Error('Please enter a valid email address');
+                }
+
+                // Submit form
+                const response = await fetch(contactForm.action, {
                     method: 'POST',
                     body: formData,
                     headers: {
                         'Accept': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest'
-                    }
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    credentials: 'same-origin'
                 });
 
-                if (response.ok) {
-                    // Clear form and show success message
-                    contactForm.reset();
-                    alert('Thank you for your message. We will get back to you soon!');
-                } else {
-                    throw new Error('Something went wrong');
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Server error occurred');
                 }
+
+                // Success handling
+                contactForm.reset();
+                showNotification('Success!', 'Thank you for your message. We will get back to you soon!', 'success');
+
             } catch (error) {
-                alert('An error occurred. Please try again later.');
+                showNotification('Error', error.message || 'An error occurred. Please try again later.', 'error');
                 console.error('Form submission error:', error);
+            } finally {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Send Message';
             }
         });
     }
+
+    // Notification helper
+    function showNotification(title, message, type = 'success') {
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 right-4 max-w-sm p-4 rounded-lg shadow-lg ${
+            type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+        } transition-all duration-300 transform translate-x-full z-50`;
+
+        notification.innerHTML = `
+            <h4 class="font-bold mb-1">${title}</h4>
+            <p>${message}</p>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+
+        // Remove after delay
+        setTimeout(() => {
+            notification.style.transform = 'translateX(full)';
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 5000);
+    }
 });
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+    fetch('/contact', {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            'Accept': 'application/json',
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
 </script>
+@endpush

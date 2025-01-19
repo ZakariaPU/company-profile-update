@@ -1,54 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title') - DXYARY</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- AOS Animation -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <!-- Custom CSS -->
-    <style>
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        .gradient-text {
-            background: linear-gradient(45deg, #3B82F6, #8B5CF6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
-</head>
-<body class="font-sans antialiased">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@yield('title') - DXYARY</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- ... -->
+        @stack('styles')
+        <!-- ... -->
+        @stack('scripts')
+        <!-- Single Vite CSS import -->
+        @vite('resources/css/app.css')
+        
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    </head>
+
+<!-- Add padding to body to account for fixed navbar -->
+<body class="pt-16 font-sans antialiased">
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow-md">
+    <nav class="fixed top-0 left-0 right-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
+                <!-- Logo -->
                 <div class="flex items-center">
                     <a href="/" class="text-2xl font-bold gradient-text">
-                        PT Hanjaya Dayari Raya
+                        DXYARY
                     </a>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
-                    <a href="/about" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
-                    <a href="/services" class="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
-                    <a href="/projects" class="text-gray-700 hover:text-blue-600 transition-colors">Projects</a>
-                    <a href="/contact" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">Contact Us</a>
+                    <a href="/" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Home</a>
+                    <a href="/about" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">About</a>
+                    <a href="/services" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Services</a>
+                    <a href="/projects" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Projects</a>
+                    <a href="/contact" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">Contact Us</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button class="mobile-menu-button">
+                    <button class="mobile-menu-button p-2 rounded-md hover:bg-gray-100">
                         <i class="fas fa-bars text-gray-700 text-2xl"></i>
                     </button>
                 </div>
@@ -56,12 +52,14 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div class="mobile-menu hidden md:hidden">
-            <a href="/" class="block py-2 px-4 text-sm hover:bg-gray-100">Home</a>
-            <a href="/about" class="block py-2 px-4 text-sm hover:bg-gray-100">About</a>
-            <a href="/services" class="block py-2 px-4 text-sm hover:bg-gray-100">Services</a>
-            <a href="/projects" class="block py-2 px-4 text-sm hover:bg-gray-100">Projects</a>
-            <a href="/contact" class="block py-2 px-4 text-sm hover:bg-gray-100">Contact</a>
+        <div class="mobile-menu hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 rounded-lg">Home</a>
+                <a href="/about" class="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 rounded-lg">About</a>
+                <a href="/services" class="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 rounded-lg">Services</a>
+                <a href="/projects" class="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 rounded-lg">Projects</a>
+                <a href="/contact" class="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg">Contact</a>
+            </div>
         </div>
     </nav>
 
@@ -72,7 +70,7 @@
         <div class="max-w-7xl mx-auto px-4 py-16">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="space-y-4">
-                    <h3 class="text-2xl font-bold gradient-text">CompanyName</h3>
+                    <h3 class="text-2xl font-bold gradient-text">PT Hanjaya Dayari Raya</h3>
                     <p class="text-gray-400">Transforming ideas into digital reality. We create innovative solutions for modern businesses.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
@@ -129,10 +127,22 @@
         // Initialize AOS
         AOS.init();
 
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
-            document.querySelector('.mobile-menu').classList.toggle('hidden');
-        });
+            // Add this to your JavaScript file or script section
+            document.addEventListener('DOMContentLoaded', function() {
+                const mobileMenuButton = document.querySelector('.mobile-menu-button');
+                const mobileMenu = document.querySelector('.mobile-menu');
+
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
     </script>
 </body>
 </html>
