@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// routes/web.php
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 // use App\Livewire\Counter;
 
 // Route::get('/', function () {
@@ -24,3 +27,14 @@ Route::get('/projects', function () {
 Route::get('/contact', function () {
     return view('pages.contact');
 });
+
+
+
+// Authentication Routes
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard/profile', [DashboardController::class, 'profile'])->name('dashboard.profile');
+Route::get('/dashboard/settings', [DashboardController::class, 'settings'])->name('dashboard.settings');
