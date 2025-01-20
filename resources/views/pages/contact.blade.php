@@ -222,36 +222,15 @@ document.addEventListener('DOMContentLoaded', function() {
             notification.style.transform = 'translateX(0)';
         }, 100);
 
+
         // Remove after delay
         setTimeout(() => {
-            notification.style.transform = 'translateX(full)';
+            notification.style.transform = 'translateX(100%)'; // Perbaikan di sini
             setTimeout(() => {
                 notification.remove();
             }, 300);
         }, 5000);
     }
 });
-
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const formData = new FormData(this);
-    fetch('/contact', {
-        method: 'POST',
-        headers: {
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            'Accept': 'application/json',
-        },
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-});
-
 </script>
 @endpush
