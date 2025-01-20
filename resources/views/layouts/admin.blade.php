@@ -23,53 +23,14 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     </head>
 
 <!-- Add padding to body to account for fixed navbar -->
-<body class="pt-16 font-sans antialiased">
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <a href="/" class="text-2xl font-bold gradient-text">
-                        DXYARY
-                    </a>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Home</a>
-                    <a href="/about" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">About</a>
-                    <a href="/services" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Services</a>
-                    <a href="/projects" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Projects</a>
-                    <a href="/contact" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">Contact Us</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button class="mobile-menu-button p-2 rounded-md hover:bg-gray-100">
-                        <i class="fas fa-bars text-gray-700 text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu hidden md:hidden bg-white border-t">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="/" class="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 rounded-lg">Home</a>
-                <a href="/about" class="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 rounded-lg">About</a>
-                <a href="/services" class="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 rounded-lg">Services</a>
-                <a href="/projects" class="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-blue-600 rounded-lg">Projects</a>
-                <a href="/contact" class="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg">Contact</a>
-            </div>
-        </div>
-    </nav>
-
+<body class="font-sans antialiased">
     @yield('content')
-
     <!-- Footer -->
     <footer class="bg-gray-900 text-white">
         <div class="max-w-7xl mx-auto px-4 py-16">
@@ -87,11 +48,11 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="/about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="/services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-                        <li><a href="/projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
-                        <li><a href="/contact" class="text-gray-400 hover:text-white transition-colors">Contacts</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contacts</a></li>
                     </ul>
                 </div>
                 <div>
@@ -107,7 +68,6 @@
                     <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
                     <ul class="space-y-2">
                         <li class="flex items-center text-gray-400">
-                            {{-- <i class="fas fa-map-marker-alt w-6 mr-2"></i> --}}
                             Jl. Amerta VII No.10, Jombor Lor, Sinduadi, Kec. Mlati, Kab. Sleman, DI Yogyakarta 55284
                         </li>
                         <li class="flex items-center text-gray-400">

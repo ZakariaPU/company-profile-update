@@ -23,7 +23,7 @@ class ContactController extends Controller
         $message = Message::create($validated);
 
         // Kirim notifikasi email
-        Mail::to('zakariapryutm@example.com')->send(new ContactNotification($validated));
+        Mail::to('zakariapryutm@gmail.com')->send(new ContactNotification($validated));
 
         return response()->json(['message' => 'Message sent and email notification delivered successfully']);
             }

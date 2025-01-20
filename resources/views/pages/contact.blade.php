@@ -32,7 +32,7 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-semibold mb-2">Visit Us</h3>
-                            <p class="text-gray-600">123 Business Street<br>New York, NY 10001<br>United States</p>
+                            <p class="text-gray-600">Jl. Amerta VII No.10, Jombor Lor<br>Sinduadi, Kec. Mlati,<br>Kab. Sleman, DI Yogyakarta 55284</p>
                         </div>
                     </div>
                     <div class="flex items-start space-x-4">
@@ -41,7 +41,7 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-semibold mb-2">Call Us</h3>
-                            <p class="text-gray-600">+1 (234) 567-8900<br>Mon-Fri 9am-6pm</p>
+                            <p class="text-gray-600">+62 811 2658 048<br>Mon-Fri 10AM-7PM</p>
                         </div>
                     </div>
                     <div class="flex items-start space-x-4">
@@ -111,8 +111,16 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
             <div class="aspect-w-16 aspect-h-9">
-                <!-- Replace with actual map integration -->
-                <img src="/api/placeholder/1200/400" alt="Location Map" class="w-full h-96 object-cover">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d231665.83400040475!2d108.721495!3d-6.997536!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a592e3ab4bbf9%3A0x41bba62baf528d1f!2sLembvr%20Creative%20Media!5e1!3m2!1sen!2sus!4v1737397269356!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="w-full h-96 object-cover">
+                </iframe>
             </div>
         </div>
     </div>
