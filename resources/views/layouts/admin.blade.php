@@ -1,114 +1,85 @@
+<!-- resources/views/layouts/admin.blade.php -->
 <!DOCTYPE html>
-<html lang="en">
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@yield('title') - DXYARY</title>
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <!-- ... -->
-        @stack('styles')
-        <!-- ... -->
-        @stack('scripts')
-        <!-- Single Vite CSS import -->
-        @vite('resources/css/app.css')
-        
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
-    </head>
-
-<!-- Add padding to body to account for fixed navbar -->
-<body class="font-sans antialiased">
-    @yield('content')
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="space-y-4">
-                    <h3 class="text-2xl font-bold gradient-text">PT Hanjaya Dayari Raya</h3>
-                    <p class="text-gray-400">Transforming ideas into digital reality. We create innovative solutions for modern businesses.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contacts</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Our Services</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Web Development</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mobile Apps</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">UI/UX Design</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Digital Marketing</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center text-gray-400">
-                            Jl. Amerta VII No.10, Jombor Lor, Sinduadi, Kec. Mlati, Kab. Sleman, DI Yogyakarta 55284
-                        </li>
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-phone w-6 mr-2"></i>
-                            +62 811 2658 048
-                        </li>
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-envelope w-6 mr-2"></i>
-                            info@company.com
-                        </li>
-                    </ul>
-                </div>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@yield('title') - Admin Dashboard</title>
+    
+    <!-- Styles -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-red-50">
+    <div class="min-h-screen flex">
+        <!-- Sidebar -->
+        <div class="flex flex-col">
+            <!-- Mobile Sidebar Toggle -->
+            <div class="lg:hidden fixed top-4 left-4 z-50">
+                <button id="sidebarToggle" class="p-2 rounded-lg bg-red-900 text-white hover:bg-red-800 focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 PT Hanjaya Dayari Raya. All rights reserved.</p>
+
+            <!-- Sidebar Content -->
+            <div id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:relative transition-transform duration-300 ease-in-out w-64 bg-red-900 text-white flex flex-col justify-between z-40">
+                <!-- Logo and Navigation -->
+                <div>
+                    <div class="p-4">
+                        <h1 class="text-2xl font-bold text-white">Admin Panel</h1>
+                    </div>
+                    
+                    <nav class="mt-4">
+                        <div class="px-4 py-2">
+                            <h2 class="text-xs uppercase tracking-wider text-red-200">Main Menu</h2>
+                        </div>
+                        
+                        <a href="{{ route('admin.dashboard') }}" class="flex items-center px-4 py-3 text-red-100 hover:bg-red-800 hover:text-white transition-colors {{ request()->routeIs('admin.dashboard') ? 'bg-red-800' : '' }}">
+                            <i class="fas fa-home w-6"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        
+                        <a href="{{ route('admin.messages') }}" class="flex items-center px-4 py-3 text-red-100 hover:bg-red-800 hover:text-white transition-colors {{ request()->routeIs('admin.messages') ? 'bg-red-800' : '' }}">
+                            <i class="fas fa-envelope w-6"></i>
+                            <span>Messages</span>
+                        </a>
+                        
+                        <a href="{{ route('admin.reports') }}" class="flex items-center px-4 py-3 text-red-100 hover:bg-red-800 hover:text-white transition-colors {{ request()->routeIs('admin.reports') ? 'bg-red-800' : '' }}">
+                            <i class="fas fa-chart-bar w-6"></i>
+                            <span>Reports</span>
+                        </a>
+                        
+                        <div class="px-4 py-2 mt-4">
+                            <h2 class="text-xs uppercase tracking-wider text-red-200">Settings</h2>
+                        </div>
+                        
+                        <a href="{{ route('admin.profile') }}" class="flex items-center px-4 py-3 text-red-100 hover:bg-red-800 hover:text-white transition-colors {{ request()->routeIs('admin.profile') ? 'bg-red-800' : '' }}">
+                            <i class="fas fa-user w-6"></i>
+                            <span>Profile</span>
+                        </a>
+                    </nav>
+                </div>
+                
+                <!-- Logout Button -->
+                {{-- <div class="p-4">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="w-full flex items-center justify-center px-4 py-2 bg-red-800 hover:bg-red-700 text-white rounded-lg transition-colors">
+                            <i class="fas fa-sign-out-alt mr-2"></i>
+                            Logout
+                        </button>
+                    </form>
+                </div> --}}
             </div>
         </div>
-    </footer>
 
-    <!-- JavaScript -->
-    <script>
-        // Initialize AOS
-        AOS.init();
+        <!-- Main Content -->
+        <div class="flex-1 overflow-x-hidden">
+            @yield('content')
+        </div>
+    </div>
 
-            // Add this to your JavaScript file or script section
-            document.addEventListener('DOMContentLoaded', function() {
-                const mobileMenuButton = document.querySelector('.mobile-menu-button');
-                const mobileMenu = document.querySelector('.mobile-menu');
 
-                mobileMenuButton.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('hidden');
-                });
-
-                // Close menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
-    </script>
-    @yield('scripts')
 </body>
 </html>
