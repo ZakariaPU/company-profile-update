@@ -48,6 +48,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
+        'ensure.authenticated' => \App\Http\Middleware\EnsureUserIsAuthenticated::class,
         'session.timeout' => \App\Http\Middleware\SessionTimeout::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,

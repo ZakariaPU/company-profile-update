@@ -4,77 +4,17 @@
 @section('title', 'Messages')
 
 @section('content')
-    <div class="min-h-screen bg-red-50">
+    <div class="min-h-screen">
         <!-- Header Section with Quick Stats -->
         <div class="bg-gradient-to-r from-red-800 to-red-900 relative overflow-hidden">
             <div class="absolute inset-0 bg-pattern opacity-10"></div>
             <div class="container mx-auto px-4 py-8 relative">
-                <div class="flex items-center justify-between mb-8">
+                {{-- <div class="flex items-center justify-between mb-8">
                     <div>
                         <h1 class="text-4xl font-bold text-white mb-2">Messages Dashboard</h1>
                         <p class="text-red-100">Monitor and manage your customer inquiries</p>
                     </div>
-                    <div>
-                        <form method="POST" action="{{ route('logout') }}" class="inline-block" id="logout-form">
-                            @csrf
-                            <button type="button" 
-                                    onclick="confirmLogout()" 
-                                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 py-3 font-medium transition-all duration-300 
-                                           bg-gradient-to-r from-red-500 to-red-700 
-                                           text-white 
-                                           hover:from-red-600 hover:to-red-800 
-                                           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 
-                                           shadow-lg hover:shadow-xl 
-                                           transform hover:-translate-y-1 active:translate-y-0">
-                                <span class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-10 transition-opacity"></span>
-                                
-                                <div class="flex items-center space-x-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                    </svg>
-                                    {{-- <span class="text-sm font-semibold tracking-wider">Sign Out</span> --}}
-                                </div>
-                            </button>
-                        </form>
-                    </div>
-                    
-                    <script>
-                    function confirmLogout() {
-                        Swal.fire({
-                            title: 'Confirm Logout',
-                            text: 'Are you sure you want to sign out?',
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonColor: '#d33',
-                            cancelButtonColor: '#3085d6',
-                            confirmButtonText: 'Yes, Log Out'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                document.getElementById('logout-form').submit();
-                            }
-                        });
-                    }
-                    </script>
-                    
-                    <script>
-                    function confirmLogout() {
-                        Swal.fire({
-                            title: 'Are You Sure You Want to Logout?',
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonColor: '#d33',
-                            cancelButtonColor: '#3085d6',
-                            confirmButtonText: 'Yes, Logout'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                document.getElementById('logout-form').submit();
-                            }
-                        })
-                    }
-                    </script>
-                    
-                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                </div>
+                </div> --}}
                 
                 <!-- Quick Stats Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -134,7 +74,7 @@
         </div>
 
         <!-- Main Content -->
-        <div class="container mx-auto px-4 py-8 -mt-8">
+        <div class="container mx-auto px-4 py-8 mt-6 ">
             <!-- Date Filter -->
             <div class="bg-white rounded-xl shadow-lg p-6 mb-8 border border-red-100">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">

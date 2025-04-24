@@ -26,6 +26,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
 
     <style>
@@ -52,114 +53,160 @@
         .nav-link:hover::after {
             width: 100%;
         }
+
     </style>
 </head>
 
 <body class="font-poppins antialiased bg-red-50/30">
-
-    @yield('content')
-
-    <!-- Footer -->
-    <footer class="bg-gradient-to-br from-red-900 to-red-800 text-white">
-        <div class="max-w-7xl mx-auto px-4 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-                <div class="space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                            <i class="fas fa-utensils text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold font-playfair text-white">RESAP KITCHEN</h3>
+    <div class="flex min-h-screen">
+        <!-- Sidebar - Hidden on mobile, shown on larger screens -->
+        <div class="hidden md:flex md:flex-shrink-0">
+            <div class="flex flex-col w-64 bg-red-900 fixed h-full">
+                <div class="flex flex-col h-full">
+                    <div class="flex items-center flex-shrink-0 px-4 h-16">
+                        <img class="h-8 w-auto" src="assets\img\logo_resap_bulat.png" alt="Logo">
+                        <span class="ml-2 text-xl font-bold text-white">Resap Kitchen</span>
                     </div>
-                    <p class="text-red-100">Bringing delightful flavors to your special moments. Professional catering services for all occasions.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors">
-                            <i class="fab fa-facebook-f"></i>
+                    <nav class="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
+                        <a href="/dashboard" class="text-red-100 hover:bg-red-800 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                            <i class="fas fa-home mr-3 h-6 w-6"></i>
+                            Dashboard
                         </a>
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors">
-                            <i class="fab fa-instagram"></i>
+                        <a href="/laporan" class="text-red-100 hover:bg-red-800 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                            <i class="fas fa-chart-bar mr-3 h-6 w-6"></i>
+                            Laporan
                         </a>
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors">
-                            <i class="fab fa-whatsapp"></i>
+                        <a href="/users" class="text-red-100 hover:bg-red-800 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                            <i class="fas fa-users mr-3 h-6 w-6"></i>
+                            Pengguna
                         </a>
-                    </div>
+                    </nav>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-6 text-white">Quick Links</h3>
-                    <ul class="space-y-4">
-                        <li>
-                            <a href="#" class="text-red-100 hover:text-white transition-colors flex items-center group">
-                                <i class="fas fa-chevron-right mr-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-red-100 hover:text-white transition-colors flex items-center group">
-                                <i class="fas fa-chevron-right mr-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>About Us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-red-100 hover:text-white transition-colors flex items-center group">
-                                <i class="fas fa-chevron-right mr-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>Our Menu
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-red-100 hover:text-white transition-colors flex items-center group">
-                                <i class="fas fa-chevron-right mr-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>Blog
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-6 text-white">Our Services</h3>
-                    <ul class="space-y-4">
-                        <li>
-                            <a href="#" class="text-red-100 hover:text-white transition-colors flex items-center group">
-                                <i class="fas fa-chevron-right mr-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>Wedding Catering
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-red-100 hover:text-white transition-colors flex items-center group">
-                                <i class="fas fa-chevron-right mr-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>Corporate Events
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-red-100 hover:text-white transition-colors flex items-center group">
-                                <i class="fas fa-chevron-right mr-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>Private Parties
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-red-100 hover:text-white transition-colors flex items-center group">
-                                <i class="fas fa-chevron-right mr-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>Food Delivery
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-6 text-white">Contact Info</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start text-red-100 group">
-                            <i class="fas fa-map-marker-alt w-6 mt-1 group-hover:text-white transition-colors"></i>
-                            <span class="ml-2 group-hover:text-white transition-colors">Jl. Amerta VII No.10, Jombor Lor, Sinduadi, Kec. Mlati, Kab. Sleman, DI Yogyakarta 55284</span>
-                        </li>
-                        <li>
-                            <a href="tel:+628112658048" class="flex items-center text-red-100 hover:text-white transition-colors">
-                                <i class="fas fa-phone w-6"></i>
-                                <span class="ml-2">+62 811 2658 048</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mailto:info@resapkitchen.com" class="flex items-center text-red-100 hover:text-white transition-colors">
-                                <i class="fas fa-envelope w-6"></i>
-                                <span class="ml-2">info@resapkitchen.com</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-red-700/50 mt-12 pt-8 text-center text-red-100">
-                <p>&copy; 2025 RESAP KITCHEN. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+
+        <!-- Main Content Area -->
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col md:ml-64">
+            <!-- Fixed Header -->
+            <header class="bg-white shadow fixed w-full md:w-[calc(100%-16rem)] z-40">
+                <div class="px-4 sm:px-6 lg:px-8 py-4">
+                    <div class="flex items-center justify-between">
+                        <h1 class="text-2xl font-semibold text-gray-900">@yield('title')</h1>
+                        <div class="flex items-center" x-data="{ isOpen: false }">
+                            <!-- User Info Button -->
+                            <div class="flex items-center cursor-pointer hover:bg-red-50 rounded-lg px-3 py-2 transition-colors duration-150" 
+                                @click="isOpen = !isOpen">
+                                <div class="hidden sm:flex flex-col items-end mr-3">
+                                    <div class="flex items-center">
+                                        <span class="text-gray-900 font-medium whitespace-nowrap">Hallo, {{ Auth::user()->name }}</span>
+                                        <i class="fas fa-chevron-down ml-2 text-gray-500 text-xs" :class="{ 'transform rotate-180': isOpen }"></i>
+                                    </div>
+                                    <span class="text-sm text-red-900 whitespace-nowrap">{{ ucfirst(Auth::user()->role) }}</span>
+                                </div>
+                                <div class="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-red-900 font-medium text-sm">
+                                        {{ strtoupper(substr(Auth::user()->name, 0, 2)) }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Dropdown Menu -->
+                            <div x-show="isOpen" 
+                                @click.away="isOpen = false"
+                                x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 scale-95"
+                                x-transition:enter-end="opacity-100 scale-100"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 scale-100"
+                                x-transition:leave-end="opacity-0 scale-95"
+                                class="absolute right-2 sm:right-4 top-[4.5rem] w-48 sm:w-72 bg-white rounded-lg shadow-lg py-2 border border-gray-100"
+                                style="display: none;">
+                                <!-- User Info Section -->
+                                <div class="px-4 py-3">
+                                    <div class="flex items-center">
+                                        <div class="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center mr-3">
+                                            <span class="text-red-900 font-medium">
+                                                {{ strtoupper(substr(Auth::user()->name, 0, 2)) }}
+                                            </span>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="text-sm font-medium text-gray-900 truncate">{{ Auth::user()->name }}</div>
+                                            <div class="text-sm text-gray-500 truncate">{{ Auth::user()->email }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Divider -->
+                                <div class="border-t border-gray-100 my-1"></div>
+                                
+                                <!-- Menu Items -->
+                                <div class="px-2">                        
+                                    <form method="GET" action="{{ route('logout') }}" class="px-0">
+                                        @csrf
+                                        <button type="submit" class="w-full flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-red-50 transition-colors duration-150">
+                                            <i class="fas fa-sign-out-alt w-5 text-red-900"></i>
+                                            <span class="ml-2">Logout</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content with proper padding -->
+            <main class="flex-1 overflow-x-hidden overflow-y-auto pt-20 px-4 sm:px-6 lg:px-8">
+                @yield('content')
+            </main>
+            
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden fixed bottom-4 right-4 z-50">
+            <button type="button" onclick="toggleMobileMenu()" 
+                    class="bg-red-900 text-white p-3 rounded-full shadow-lg hover:bg-red-800 transition-colors duration-200">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden fixed inset-0 z-50 md:hidden">
+            <!-- Backdrop -->
+            <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity" onclick="toggleMobileMenu()"></div>
+            
+            <!-- Sidebar -->
+            <div class="fixed inset-y-0 left-0 w-64 bg-red-900 transform transition-transform duration-300 ease-in-out">
+                <div class="flex flex-col h-full">
+                    <div class="flex items-center justify-between px-4 h-16">
+                        <div class="flex items-center">
+                            <img class="h-8 w-auto" src="assets\img\logo_resap_bulat.png" alt="Logo">
+                            <span class="ml-2 text-xl font-bold text-white">Resap Kitchen</span>
+                        </div>
+                        <button onclick="toggleMobileMenu()" class="text-white p-2 hover:bg-red-800 rounded-md">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <nav class="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
+                        <a href="/dashboard" class="text-red-100 hover:bg-red-800 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                            <i class="fas fa-home mr-3 h-6 w-6"></i>
+                            Dashboard
+                        </a>
+                        <a href="/laporan" class="text-red-100 hover:bg-red-800 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                            <i class="fas fa-chart-bar mr-3 h-6 w-6"></i>
+                            Laporan
+                        </a>
+                        <a href="/users" class="text-red-100 hover:bg-red-800 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                            <i class="fas fa-users mr-3 h-6 w-6"></i>
+                            Pengguna
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- JavaScript -->
     <script>
@@ -176,6 +223,33 @@
             mobileMenuButton.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
             });
+
+              // Toggle mobile menu with slide animation
+        window.toggleMobileMenu = function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const sidebar = mobileMenu.querySelector('.transform');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    sidebar.classList.remove('-translate-x-full');
+                }, 0);
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        };
+
+        // Close mobile menu when clicking navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (window.innerWidth < 768) {
+                    toggleMobileMenu();
+                }
+            });
+        });
 
             // Close mobile menu when clicking outside
             document.addEventListener('click', function(event) {
@@ -194,6 +268,20 @@
                 }
             });
         });
+
+            // Toggle mobile menu
+    window.toggleMobileMenu = function() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('hidden');
+    };
+            // Add smooth scrolling for mobile menu links
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            if (window.innerWidth < 768) {
+                toggleMobileMenu();
+            }
+        });
+    });
     </script>
     @yield('scripts')
 </body>

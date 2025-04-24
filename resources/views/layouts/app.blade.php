@@ -62,7 +62,7 @@
                     <a href="/about" class="nav-link text-gray-800 hover:text-red-900 transition-colors duration-200">About Us</a>
                     <a href="/services" class="nav-link text-gray-800 hover:text-red-900 transition-colors duration-200">Our Menu</a>
                     <a href="/blog" class="nav-link text-gray-800 hover:text-red-900 transition-colors duration-200">Blog</a>
-                    <a href="/contact" class="px-6 py-3 bg-red-900 text-white rounded-full hover:bg-red-800 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                    <a href="/catering" class="px-6 py-3 bg-red-900 text-white rounded-full hover:bg-red-800 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                         Order Now
                         <i class="fas fa-arrow-right ml-2 text-sm"></i>
                     </a>

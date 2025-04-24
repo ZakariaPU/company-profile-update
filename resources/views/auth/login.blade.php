@@ -121,7 +121,7 @@
                             Sign In
                         </button>
 
-                        <a href="" class="w-full block">
+                        <a href="/home" class="w-full block">
                             <button type="button" 
                                     class="w-full py-3 px-4 bg-white border border-red-500 text-red-500 font-semibold rounded-lg hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-300 ease-in-out transform hover:scale-101 active:scale-99">
                                 <div class="flex items-center justify-center">

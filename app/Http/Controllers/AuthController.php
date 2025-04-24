@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\SessionTimeout;
 use App\Models\User;
+use App\Models\CateringOrder;
 
 class AuthController extends Controller
 {
@@ -36,7 +37,7 @@ class AuthController extends Controller
         }
      
         $request->session()->regenerate();
-        return redirect()->intended('messages');
+        return redirect()->intended('dashboard');
     }
 
     public function logout(Request $request)
