@@ -24,12 +24,12 @@
                         </div>
                     </div>
                     <div>
-                        <label for="role" class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                        {{-- <label for="role" class="block text-sm font-medium text-gray-700 mb-1">Role</label>
                         <select id="role" name="role" class="w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500">
                             <option value="">Semua Role</option>
                             <option value="admin" {{ request('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                             <option value="petugas" {{ request('role') == 'petugas' ? 'selected' : '' }}>Petugas</option>
-                        </select>
+                        </select> --}}
                     </div>
                     <div class="flex items-end">
                         <button type="submit" class="w-full bg-red-900 text-white px-4 py-2 rounded-lg hover:bg-red-800 transition-colors duration-200">
@@ -119,81 +119,117 @@
         </main>
     </div>
 
-    <!-- Create/Edit Modal -->
-    <div id="userModal" class="hidden fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full z-50">
-        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-xl bg-white">
-            <div class="absolute top-3 right-3">
-                <button type="button" onclick="closeUserModal()" class="text-gray-400 hover:text-gray-500">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="mt-3">
-                <h3 id="modalTitle" class="text-xl font-semibold text-gray-900 mb-4"></h3>
-                <form id="userForm" method="POST" class="space-y-4">
-                    @csrf
-                    <div id="methodField"></div>
-                    
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
-                        <input type="text" name="name" id="name" required
-                               class="w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500">
-                        <div class="error-message"></div>
+<!-- Create/Edit Modal -->
+<div id="userModal" class="hidden fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full z-50">
+    <div class="relative top-20 mx-auto p-5 border w-full max-w-md shadow-xl rounded-xl bg-white transform transition-all">
+        <div class="flex items-center justify-between pb-3 border-b">
+            <h3 id="modalTitle" class="text-xl font-semibold text-gray-900"></h3>
+            <button type="button" onclick="closeUserModal()" class="text-gray-400 hover:text-gray-500 transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mt-4">
+            <form id="userForm" method="POST" class="space-y-5">
+                @csrf
+                <div id="methodField"></div>
+                
+                <div class="form-group">
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                    <div class="relative rounded-md shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-user text-red-400"></i>
+                        </div>
+                        <input type="text" name="name" id="name" required placeholder="Masukkan nama lengkap"
+                               class="pl-10 w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500 transition-all duration-200">
                     </div>
-                    
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                        <input type="email" name="email" id="email" required
-                               class="w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500">
-                        <div class="error-message"></div>
+                    <div class="error-message mt-1"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Alamat Email</label>
+                    <div class="relative rounded-md shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-envelope text-red-400"></i>
+                        </div>
+                        <input type="email" name="email" id="email" required placeholder="contoh@email.com"
+                               class="pl-10 w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500 transition-all duration-200">
                     </div>
-                    
-                    <div>
-                        <label for="role" class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                    <div class="error-message mt-1"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="role" class="block text-sm font-medium text-gray-700 mb-1">Role Pengguna</label>
+                    <div class="relative rounded-md shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-user-tag text-red-400"></i>
+                        </div>
                         <select name="role" id="role" required
-                                class="w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500">
+                                class="pl-10 w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500 transition-all duration-200 cursor-pointer">
+                            <option value="" disabled selected>Pilih role</option>
                             <option value="petugas">Petugas</option>
                             <option value="admin">Admin</option>
                         </select>
-                        <div class="error-message"></div>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
                     </div>
-                    
-                    <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                        <input type="password" name="password" id="password"
-                               class="w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500">
-                        <p class="text-sm text-gray-500 mt-1">Kosongkan jika tidak ingin mengubah password</p>
-                        <div class="error-message"></div>
+                    <div class="error-message mt-1"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <div class="relative rounded-md shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-lock text-red-400"></i>
+                        </div>
+                        <input type="password" name="password" id="password" placeholder="Masukkan password"
+                               class="pl-10 pr-10 w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500 transition-all duration-200">
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                            <button type="button" id="togglePassword" class="text-gray-400 hover:text-gray-600 focus:outline-none">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
-                    
-                    <div class="flex justify-end gap-3 mt-6">
-                        <button type="button" onclick="closeUserModal()" 
-                                class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                            Batal
-                        </button>
-                        <button type="submit" 
-                                class="px-4 py-2 text-sm font-medium text-white bg-red-900 rounded-lg hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                            Simpan
-                        </button>
-                    </div>
-                </form>
-            </div>
+                    <p class="text-sm text-gray-500 mt-1 italic">Kosongkan jika tidak ingin mengubah password</p>
+                    <div class="error-message mt-1"></div>
+                </div>
+                
+                <div class="flex justify-end gap-3 mt-6">
+                    <button type="button" onclick="closeUserModal()" 
+                            class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200">
+                        <i class="fas fa-times mr-2"></i>Batal
+                    </button>
+                    <button type="submit" 
+                            class="px-4 py-2 text-sm font-medium text-white bg-red-900 rounded-lg hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200">
+                        <i class="fas fa-save mr-2"></i>Simpan
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
-    <!-- Detail Modal -->
-    <div id="detailModal" class="hidden fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full z-50">
-        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-xl bg-white">
-            <div class="absolute top-3 right-3">
-                <button type="button" onclick="closeDetailModal()" class="text-gray-400 hover:text-gray-500">
-                    <i class="fas fa-times"></i>
+<!-- Detail Modal -->
+<div id="detailModal" class="hidden fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full z-50">
+    <div class="relative top-20 mx-auto p-5 border w-full max-w-md shadow-xl rounded-xl bg-white transform transition-all">
+        <div class="flex items-center justify-between pb-3 border-b">
+            <h3 class="text-xl font-semibold text-gray-900">Detail Pengguna</h3>
+            <button type="button" onclick="closeDetailModal()" class="text-gray-400 hover:text-gray-500 transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mt-4">
+            <div id="userDetails" class="space-y-4"></div>
+            
+            <div class="flex justify-end mt-6">
+                <button type="button" onclick="closeDetailModal()" 
+                        class="px-4 py-2 text-sm font-medium text-white bg-red-900 rounded-lg hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200">
+                    <i class="fas fa-times mr-2"></i>Tutup
                 </button>
             </div>
-            <div class="mt-3">
-                <h3 class="text-xl font-semibold text-gray-900 mb-4">Detail Pengguna</h3>
-                <div id="userDetails" class="space-y-4"></div>
-            </div>
         </div>
     </div>
+</div>
 
     <!-- Toast Notification -->
     
@@ -322,36 +358,41 @@ async function showDetail(userId) {
             year: 'numeric'
         });
         
+        const roleColor = user.role === 'admin' ? 'bg-red-100 text-red-800' : 'bg-blue-100 text-blue-800';
+        const roleIcon = user.role === 'admin' ? 'fa-user-shield' : 'fa-user';
+        
         const detailsHtml = `
-            <div class="bg-gray-50 rounded-lg p-4">
-                <div class="flex items-center justify-center mb-4">
-                    <div class="h-20 w-20 rounded-full bg-red-100 flex items-center justify-center">
-                        <span class="text-red-900 font-bold text-xl">
-                            ${user.name.substring(0, 2).toUpperCase()}
-                        </span>
+            <div class="flex flex-col items-center justify-center mb-6">
+                <div class="h-24 w-24 rounded-full bg-red-100 flex items-center justify-center mb-4">
+                    <span class="text-red-900 font-bold text-2xl">
+                        ${user.name.substring(0, 2).toUpperCase()}
+                    </span>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-900">${user.name}</h4>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${roleColor} mt-2">
+                    <i class="fas ${roleIcon} mr-1"></i>
+                    ${user.role.charAt(0).toUpperCase() + user.role.slice(1)}
+                </span>
+            </div>
+            
+            <div class="bg-gray-50 rounded-lg p-4 space-y-4">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-md bg-gray-100 flex items-center justify-center">
+                        <i class="fas fa-envelope text-gray-500"></i>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-xs font-medium text-gray-500">Email</p>
+                        <p class="text-sm font-medium text-gray-900 mt-1">${user.email}</p>
                     </div>
                 </div>
-                <div class="space-y-3">
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500">Nama Lengkap</label>
-                        <p class="mt-1 text-sm text-gray-900">${user.name}</p>
+                
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-md bg-gray-100 flex items-center justify-center">
+                        <i class="fas fa-calendar-alt text-gray-500"></i>
                     </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500">Email</label>
-                        <p class="mt-1 text-sm text-gray-900">${user.email}</p>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500">Role</label>
-                        <p class="mt-1">
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
-                                ${user.role === 'admin' ? 'bg-red-100 text-red-800' : 'bg-blue-100 text-blue-800'}">
-                                ${user.role.charAt(0).toUpperCase() + user.role.slice(1)}
-                            </span>
-                        </p>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500">Terdaftar Pada</label>
-                        <p class="mt-1 text-sm text-gray-900">${formattedDate}</p>
+                    <div class="ml-3">
+                        <p class="text-xs font-medium text-gray-500">Terdaftar Pada</p>
+                        <p class="text-sm font-medium text-gray-900 mt-1">${formattedDate}</p>
                     </div>
                 </div>
             </div>
@@ -364,6 +405,28 @@ async function showDetail(userId) {
         console.error('Error fetching user details:', error);
     }
 }
+
+// Toggle Password Visibility
+document.addEventListener('DOMContentLoaded', function() {
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordField = document.getElementById('password');
+    
+    if (togglePassword && passwordField) {
+        togglePassword.addEventListener('click', function() {
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+            
+            // Change icon based on password visibility
+            if (type === 'text') {
+                togglePassword.innerHTML = '<i class="fas fa-eye-slash"></i>';
+                togglePassword.setAttribute('title', 'Sembunyikan password');
+            } else {
+                togglePassword.innerHTML = '<i class="fas fa-eye"></i>';
+                togglePassword.setAttribute('title', 'Lihat password');
+            }
+        });
+    }
+});
 
 function closeDetailModal() {
     document.getElementById('detailModal').classList.add('hidden');

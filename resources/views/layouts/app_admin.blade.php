@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@yield('title') - RESAP KITCHEN</title>
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <!-- ... -->
-        @stack('styles')
-        <!-- ... -->
-        @stack('scripts')
-        <!-- Single Vite CSS import -->
-        @vite('resources/css/app.css')
-        
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title') - RESAP KITCHEN</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- ... -->
+    @stack('styles')
+    <!-- ... -->
+    @stack('scripts')
+    <!-- Single Vite CSS import -->
+    @vite('resources/css/app.css')
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
-        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    </head>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
         .font-playfair { font-family: 'Playfair Display', serif; }
@@ -53,7 +50,6 @@
         .nav-link:hover::after {
             width: 100%;
         }
-
     </style>
 </head>
 
@@ -68,24 +64,30 @@
                         <span class="ml-2 text-xl font-bold text-white">Resap Kitchen</span>
                     </div>
                     <nav class="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
+                        <!-- Dashboard menu - visible for all roles -->
                         <a href="/dashboard" class="text-red-100 hover:bg-red-800 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-home mr-3 h-6 w-6"></i>
                             Dashboard
                         </a>
+                        
+                        <!-- Laporan menu - visible for all roles -->
                         <a href="/laporan" class="text-red-100 hover:bg-red-800 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-chart-bar mr-3 h-6 w-6"></i>
                             Laporan
                         </a>
+                        
+                        <!-- Pengguna menu - visible only for Admin role -->
+                        @if(Auth::user()->role == 'admin')
                         <a href="/users" class="text-red-100 hover:bg-red-800 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-users mr-3 h-6 w-6"></i>
                             Pengguna
                         </a>
+                        @endif
                     </nav>
                 </div>
             </div>
         </div>
 
-        <!-- Main Content Area -->
         <!-- Main Content Area -->
         <div class="flex-1 flex flex-col md:ml-64">
             <!-- Fixed Header -->
@@ -177,7 +179,7 @@
             <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity" onclick="toggleMobileMenu()"></div>
             
             <!-- Sidebar -->
-            <div class="fixed inset-y-0 left-0 w-64 bg-red-900 transform transition-transform duration-300 ease-in-out">
+            <div class="fixed inset-y-0 left-0 w-64 bg-red-900 transform -translate-x-full transition-transform duration-300 ease-in-out">
                 <div class="flex flex-col h-full">
                     <div class="flex items-center justify-between px-4 h-16">
                         <div class="flex items-center">
@@ -189,24 +191,30 @@
                         </button>
                     </div>
                     <nav class="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
+                        <!-- Dashboard menu - visible for all roles -->
                         <a href="/dashboard" class="text-red-100 hover:bg-red-800 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-home mr-3 h-6 w-6"></i>
                             Dashboard
                         </a>
+                        
+                        <!-- Laporan menu - visible for all roles -->
                         <a href="/laporan" class="text-red-100 hover:bg-red-800 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-chart-bar mr-3 h-6 w-6"></i>
                             Laporan
                         </a>
+                        
+                        <!-- Pengguna menu - visible only for Admin role -->
+                        @if(Auth::user()->role == 'admin')
                         <a href="/users" class="text-red-100 hover:bg-red-800 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-users mr-3 h-6 w-6"></i>
                             Pengguna
                         </a>
+                        @endif
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- JavaScript -->
     <script>
@@ -217,45 +225,31 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.querySelector('.mobile-menu-button');
-            const mobileMenu = document.querySelector('.mobile-menu');
-
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-              // Toggle mobile menu with slide animation
-        window.toggleMobileMenu = function() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const sidebar = mobileMenu.querySelector('.transform');
-            
-            if (mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.remove('hidden');
-                setTimeout(() => {
-                    sidebar.classList.remove('-translate-x-full');
-                }, 0);
-            } else {
-                sidebar.classList.add('-translate-x-full');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300);
-            }
-        };
-
-        // Close mobile menu when clicking navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (window.innerWidth < 768) {
-                    toggleMobileMenu();
+            // Toggle mobile menu with slide animation
+            window.toggleMobileMenu = function() {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const sidebar = mobileMenu.querySelector('.transform');
+                
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => {
+                        sidebar.classList.remove('-translate-x-full');
+                    }, 0);
+                } else {
+                    sidebar.classList.add('-translate-x-full');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
                 }
-            });
-        });
+            };
 
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
-                    mobileMenu.classList.add('hidden');
-                }
+            // Close mobile menu when clicking navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (window.innerWidth < 768) {
+                        toggleMobileMenu();
+                    }
+                });
             });
 
             // Add scroll effect to navbar
@@ -268,20 +262,6 @@
                 }
             });
         });
-
-            // Toggle mobile menu
-    window.toggleMobileMenu = function() {
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenu.classList.toggle('hidden');
-    };
-            // Add smooth scrolling for mobile menu links
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            if (window.innerWidth < 768) {
-                toggleMobileMenu();
-            }
-        });
-    });
     </script>
     @yield('scripts')
 </body>

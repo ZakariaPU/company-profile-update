@@ -43,7 +43,6 @@ Route::post('/catering', [CateringController::class, 'store'])->name('catering.s
 // Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
 // Route::put('/orders/{id}/update-status', [LaporanController::class, 'updateStatus'])->name('orders.update-status');
 
-
 // Authentication routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);

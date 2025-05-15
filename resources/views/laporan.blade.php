@@ -137,42 +137,59 @@
         </main>
     </div>
 
-    <!-- Update Status Modal -->
-    <div id="updateModal" class="hidden fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full z-50">
-        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-xl bg-white">
-            <div class="absolute top-3 right-3">
-                <button type="button" onclick="closeUpdateModal()" class="text-gray-400 hover:text-gray-500">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="mt-3">
-                <h3 class="text-xl font-semibold text-gray-900 mb-4">Update Status Pesanan</h3>
-                <form id="updateForm" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
-                        <select name="status" id="status" class="w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500">
-                            <option value="pending">Pending</option>
-                            <option value="processing">Processing</option>
-                            <option value="completed">Completed</option>
-                            <option value="cancelled">Cancelled</option>
-                        </select>
-                    </div>
-                    <div class="flex justify-end gap-3">
-                        <button type="button" onclick="closeUpdateModal()" 
-                                class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
-                            Batal
-                        </button>
-                        <button type="submit" 
-                                class="px-4 py-2 text-sm font-medium text-white bg-red-900 rounded-lg hover:bg-red-800">
-                            Update
-                        </button>
-                    </div>
-                </form>
+<!-- Update Status Modal -->
+<div id="updateModal" class="hidden fixed inset-0 bg-black bg-opacity-60 overflow-y-auto h-full w-full z-50 flex items-center justify-center">
+    <div class="relative mx-auto p-6 border w-full max-w-md shadow-xl rounded-xl bg-white transition-all duration-300 transform scale-95 opacity-0">
+        <div class="absolute top-4 right-4">
+            <button type="button" onclick="closeUpdateModal()" class="text-gray-400 hover:text-red-600 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+        
+        <div class="mt-2 text-center mb-5">
+            <h3 class="text-xl font-bold text-gray-900">Update Status Pesanan</h3>
+            <div class="mt-2">
+                <p class="text-sm text-gray-500">Pilih status baru untuk pesanan ini</p>
             </div>
         </div>
+        
+        <form id="updateForm" method="POST" class="space-y-5">
+            @csrf
+            @method('PUT')
+            
+            <div>
+                <label for="status" class="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                <div class="relative">
+                    <select name="status" id="status" 
+                            class="block w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 rounded-lg shadow-sm appearance-none">
+                        <option value="pending">Pending</option>
+                        <option value="processing">Processing</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-end gap-3 pt-2">
+                <button type="button" onclick="closeUpdateModal()" 
+                        class="px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-200">
+                    Batal
+                </button>
+                <button type="submit" 
+                        class="px-6 py-2.5 text-sm font-medium text-white bg-red-800 rounded-lg hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors duration-200">
+                    Update
+                </button>
+            </div>
+        </form>
     </div>
+</div>
 
     <!-- Detail Modal -->
     <div id="detailModal" class="hidden fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full z-50">
@@ -321,46 +338,69 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Update Status Modal Functions
 function openUpdateModal(orderId) {
-const modal = document.getElementById('updateModal');
-const form = document.getElementById('updateForm');
-form.action = `/orders/${orderId}/update-status`;
-modal.classList.remove('hidden');
-
-// Add event listener for form submission
-form.addEventListener('submit', async function(e) {
-    e.preventDefault();
+    const modal = document.getElementById('updateModal');
+    const form = document.getElementById('updateForm');
+    const modalContent = modal.querySelector('.relative');
     
-    try {
-        const response = await fetch(this.action, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-            },
-            body: JSON.stringify({
-                status: document.getElementById('status').value
-            })
-        });
+    // Set the form action with the order ID
+    form.action = `/orders/${orderId}/update-status`;
+    
+    // Show the modal with animation
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        modalContent.classList.add('scale-100');
+        modalContent.classList.remove('scale-95', 'opacity-0');
+    }, 10);
+    
+    // Remove any existing event listeners to prevent duplicates
+    const newForm = form.cloneNode(true);
+    form.parentNode.replaceChild(newForm, form);
+    
+    // Add event listener for form submission
+    newForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
         
-        const data = await response.json();
-        
-        if (data.success) {
-            showToast(data.message);
-            closeUpdateModal();
-            window.location.reload();
-        } else {
-            showToast(data.message, 'error');
+        try {
+            const response = await fetch(this.action, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                },
+                body: JSON.stringify({
+                    status: document.getElementById('status').value
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                showToast(data.message);
+                closeUpdateModal();
+                window.location.reload();
+            } else {
+                showToast(data.message, 'error');
+            }
+        } catch (error) {
+            showToast('Terjadi kesalahan saat memperbarui status', 'error');
         }
-    } catch (error) {
-        showToast('Terjadi kesalahan saat memperbarui status', 'error');
-    }
-});
+    });
 }
 
 function closeUpdateModal() {
-const modal = document.getElementById('updateModal');
-modal.classList.add('hidden');
+    const modal = document.getElementById('updateModal');
+    const modalContent = modal.querySelector('.relative');
+    
+    // Hide with animation
+    modalContent.classList.add('scale-95', 'opacity-0');
+    modalContent.classList.remove('scale-100');
+    
+    // After animation completes, hide the modal
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 200);
 }
+
 
 // Detail Modal Functions
 async function showDetail(orderId) {
@@ -398,7 +438,7 @@ async function showDetail(orderId) {
         const detailsHtml = `
             <div class="bg-white rounded-lg shadow-lg overflow-hidden max-w-full">
                 <!-- Header with customer avatar - now more horizontal -->
-                <div class="bg-red-600 p-4 text-white">
+                <div class="bg-red-800 p-4 text-white">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-4">
                             <div class="h-16 w-16 rounded-full bg-white flex items-center justify-center border-2 border-white shadow-md">
@@ -489,9 +529,9 @@ async function showDetail(orderId) {
                     
                     <!-- Action buttons -->
                     <div class="flex justify-end space-x-3 mt-2">
-                        <a href="https://wa.me/${order.phone.replace(/\D/g, '')}" target="_blank" class="px-4 py-2 text-sm bg-red-600 hover:bg-red-700 rounded-md text-white flex items-center">
+                        <a href="${createWhatsAppLink(order)}" target="_blank" class="px-4 py-2 text-sm bg-green-600 hover:bg-green-700 rounded-md text-white flex items-center">
                             <i class="fab fa-whatsapp mr-2"></i>
-                            WhatsApp
+                            Kirim Detail Pesanan
                         </a>
                     </div>
                 </div>
@@ -596,6 +636,50 @@ window.addEventListener('resize', handleResize);
             }
         });
     });
+
+    // Fungsi untuk membuat link WhatsApp dengan detail pesanan
+    function createWhatsAppLink(order) {
+    // Format tanggal untuk pesan
+    const formattedDate = order.order_date ? new Date(order.order_date).toLocaleDateString('id-ID') : '-';
+    const formattedStartDate = order.start_date ? new Date(order.start_date).toLocaleDateString('id-ID') : '-';
+    const formattedEndDate = order.end_date ? new Date(order.end_date).toLocaleDateString('id-ID') : '-';
+    
+    // Susun pesan yang akan dikirimkan
+    const message = `
+    *RESAP KITCHEN*
+    ---------------------------
+    *DETAIL PESANAN #${order.id}*
+    ---------------------------
+    *INFORMASI PELANGGAN:*
+    Nama: ${order.name}
+    Email: ${order.email}
+    Telepon: ${order.phone}
+    Instagram: @${order.instagram}
+    Alamat: ${order.address}
+    ---------------------------
+    *DETAIL MENU:*
+    Jenis Menu: ${order.menu_type}
+    Jenis Hidangan: ${order.meal_types}
+    Alergi: ${order.allergies || '-'}
+    Catatan: ${order.notes || '-'}
+    ---------------------------
+    *INFORMASI JADWAL:*
+    Tanggal Pesanan: ${formattedDate}
+    Tanggal Mulai: ${formattedStartDate}
+    Tanggal Selesai: ${formattedEndDate}
+    ---------------------------
+    *STATUS PESANAN:* ${order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+    ---------------------------
+    *Silakan hubungi kami jika ada pertanyaan lebih lanjut!*
+    *Terima kasih telah memesan di RESAP KITCHEN!*
+    `;
+
+    // Dapatkan nomor telepon tanpa karakter non-numerik
+    const phoneNumber = order.phone.replace(/\D/g, '');
+    
+    // Buat link WhatsApp dengan pesan yang terenkode
+    return `https://wa.me/+62${phoneNumber}?text=${encodeURIComponent(message)}`;
+    }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endpush
