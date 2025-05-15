@@ -6,7 +6,6 @@ use App\Models\CateringOrder;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use PDF;
-
 class LaporanController extends Controller
 {
     public function index(Request $request)
@@ -71,7 +70,11 @@ class LaporanController extends Controller
                 'notes' => $order->notes,
                 'status' => $order->status,
                 'created_at' => $order->created_at,
-                'status_class' => $order->status_class
+                'status_class' => $order->status_class,
+                'instagram' => $order->instagram,
+                'meal_types' => $order->meal_types,
+                'start_date' => $order->start_date,
+                'end_date' => $order->end_date,
             ]);
         } catch (\Exception $e) {
             return response()->json([

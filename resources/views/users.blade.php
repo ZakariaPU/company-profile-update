@@ -103,7 +103,7 @@
                             @empty
                             <tr>
                                 <td colspan="4" class="px-6 py-4 text-center text-gray-500">
-                                    Tidak ada data pengguna
+                                    Tidak ada data pengguna yang ditemukan.
                                 </td>
                             </tr>
                             @endforelse
@@ -196,6 +196,7 @@
     </div>
 
     <!-- Toast Notification -->
+    
     <div id="toast" class="hidden fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 z-50">
         <div class="w-full flex flex-col items-center space-y-4 sm:items-end">
             <div id="toastContent" class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
@@ -492,4 +493,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endpush

@@ -56,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/orders/{id}/update-status', [LaporanController::class, 'updateStatus'])->name('orders.update-status');
     Route::get('/orders/{id}', [LaporanController::class, 'show']);
     Route::delete('/orders/{id}', [LaporanController::class, 'destroy']);
+    Route::delete('/users/{id}', [UserController::class, 'destroy']);
     Route::resource('users', UserController::class);
     
 });

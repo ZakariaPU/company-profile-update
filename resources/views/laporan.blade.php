@@ -115,6 +115,15 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                                <!-- No Data Row -->
+                                @if($orders->isEmpty())
+                                <tr>
+                                    <<td colspan="6" class="text-center align-middle py-8 text-gray-500">
+                                        Tidak ada data pesanan ditemukan.
+                                    </td>
+                                </tr>
+                                @endif
+                                
                             </tbody>
                         </table>
                     </div>
@@ -167,7 +176,7 @@
 
     <!-- Detail Modal -->
     <div id="detailModal" class="hidden fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full z-50">
-        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-xl bg-white">
+        <div class="relative top-20 mx-auto p-5 border max-w-4xl w-full md:w-3/4 lg:w-2/3 shadow-lg rounded-xl bg-white">
             <div class="absolute top-3 right-3">
                 <button type="button" onclick="closeDetailModal()" class="text-gray-400 hover:text-gray-500">
                     <i class="fas fa-times"></i>
@@ -178,23 +187,31 @@
                 <div id="orderDetails" class="bg-gray-50 rounded-lg p-4"></div>
             </div>
         </div>
-    </div>    
+    </div> 
 
     <!-- Toast Notification -->
-    <div id="toast" class="hidden fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 z-50">
-        <div class="w-full flex flex-col items-center space-y-4 sm:items-end">
-            <div id="toastContent" class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
-                <div class="p-4">
-                    <div class="flex items-center">
-                        <div class="flex-1 w-0">
-                            <p id="toastMessage" class="text-sm font-medium text-gray-900"></p>
+    <div id="toast" class="hidden fixed bottom-5 right-5 z-50">
+        <div id="toastContent" class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
+            <div class="p-4">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 mr-3">
+                        <!-- Success Icon (shown conditionally via JS) -->
+                        <div id="successIcon" class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center">
+                            <i class="fas fa-check text-green-600"></i>
                         </div>
-                        <div class="ml-4 flex-shrink-0 flex">
-                            <button type="button" onclick="closeToast()" class="rounded-md inline-flex text-gray-400 hover:text-gray-500">
-                                <span class="sr-only">Close</span>
-                                <i class="fas fa-times"></i>
-                            </button>
+                        <!-- Error Icon (shown conditionally via JS) -->
+                        <div id="errorIcon" class="hidden h-8 w-8 rounded-full bg-red-100 flex items-center justify-center">
+                            <i class="fas fa-exclamation-triangle text-red-600"></i>
                         </div>
+                    </div>
+                    <div class="flex-1">
+                        <p id="toastMessage" class="text-sm font-medium text-gray-900"></p>
+                    </div>
+                    <div class="ml-4 flex-shrink-0 flex">
+                        <button type="button" onclick="closeToast()" class="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none">
+                            <span class="sr-only">Close</span>
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -212,26 +229,95 @@
     };
 
 // Toast Notification Functions
+// Toast Notification Functions - Fixed Version
 function showToast(message, type = 'success') {
-const toast = document.getElementById('toast');
-const toastMessage = document.getElementById('toastMessage');
-
-toast.className = `fixed bottom-5 right-5 px-4 py-2 rounded-md text-white z-50 ${
-    type === 'success' ? 'bg-green-500' : 'bg-red-500'
-}`;
-
-toastMessage.textContent = message;
-toast.classList.remove('hidden');
-
-setTimeout(() => {
-    closeToast();
-}, 3000);
+    const toast = document.getElementById('toast');
+    const toastContent = document.getElementById('toastContent');
+    const toastMessage = document.getElementById('toastMessage');
+    
+    // Set the appropriate styling based on notification type
+    toastContent.className = `max-w-sm w-full shadow-lg rounded-lg pointer-events-auto overflow-hidden ${
+        type === 'success' ? 'bg-green-50 ring-1 ring-green-500' : 'bg-red-50 ring-1 ring-red-500'
+    }`;
+    
+    // Set the message text and color
+    toastMessage.textContent = message;
+    toastMessage.className = `text-sm font-medium ${
+        type === 'success' ? 'text-green-800' : 'text-red-800'
+    }`;
+    
+    // Show the toast
+    toast.classList.remove('hidden');
+    
+    // Auto-hide after 8 seconds
+    setTimeout(() => {
+        closeToast();
+    }, 8000);
 }
 
 function closeToast() {
-const toast = document.getElementById('toast');
-toast.classList.add('hidden');
+    const toast = document.getElementById('toast');
+    toast.classList.add('hidden');
 }
+
+// Make sure the toast container has the correct positioning
+document.addEventListener('DOMContentLoaded', function() {
+    // Fix toast container positioning
+    const toastContainer = document.getElementById('toast');
+    if (toastContainer) {
+        toastContainer.className = 'hidden fixed bottom-5 right-5 z-50';
+    }
+});
+
+// Enhanced Toast Notification Function with Icon Support
+function showToast(message, type = 'success') {
+    const toast = document.getElementById('toast');
+    const toastContent = document.getElementById('toastContent');
+    const toastMessage = document.getElementById('toastMessage');
+    const successIcon = document.getElementById('successIcon');
+    const errorIcon = document.getElementById('errorIcon');
+    
+    // Set the appropriate styling based on notification type
+    if (type === 'success') {
+        toastContent.className = 'max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-green-500 overflow-hidden';
+        toastMessage.className = 'text-sm font-medium text-gray-900';
+        successIcon.classList.remove('hidden');
+        errorIcon.classList.add('hidden');
+    } else {
+        toastContent.className = 'max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-red-500 overflow-hidden';
+        toastMessage.className = 'text-sm font-medium text-gray-900';
+        successIcon.classList.add('hidden');
+        errorIcon.classList.remove('hidden');
+    }
+    
+    // Set the message text
+    toastMessage.textContent = message;
+    
+    // Show the toast with proper positioning
+    toast.className = 'fixed bottom-5 right-5 z-50';
+    
+    // Auto-hide after 8 seconds
+    setTimeout(() => {
+        closeToast();
+    }, 8000);
+}
+
+function closeToast() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('hidden');
+}
+
+// Initialize toast positioning on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const statusNotification = document.querySelector('.status-notification');
+    if (statusNotification) {
+        // Extract message from any existing notification
+        const message = statusNotification.textContent.trim();
+        if (message) {
+            showToast(message, statusNotification.classList.contains('success') ? 'success' : 'error');
+        }
+    }
+});
 
 // Update Status Modal Functions
 function openUpdateModal(orderId) {
@@ -277,7 +363,6 @@ modal.classList.add('hidden');
 }
 
 // Detail Modal Functions
-// Detail Modal Functions
 async function showDetail(orderId) {
     try {
         const response = await fetch(`/orders/${orderId}`);
@@ -285,6 +370,18 @@ async function showDetail(orderId) {
         
         const order = await response.json();
         const formattedDate = new Date(order.created_at).toLocaleDateString('id-ID', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+
+        const formattedStartDate = new Date(order.start_date).toLocaleDateString('id-ID', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+
+        const formattedEndDate = new Date(order.end_date).toLocaleDateString('id-ID', {
             day: 'numeric',
             month: 'long',
             year: 'numeric'
@@ -299,42 +396,103 @@ async function showDetail(orderId) {
         };
         
         const detailsHtml = `
-            <div class="space-y-3">
-                <div class="flex items-center justify-center mb-4">
-                    <div class="h-20 w-20 rounded-full bg-red-100 flex items-center justify-center">
-                        <span class="text-red-900 font-bold text-xl">
-                            ${order.name.substring(0, 2).toUpperCase()}
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden max-w-full">
+                <!-- Header with customer avatar - now more horizontal -->
+                <div class="bg-red-600 p-4 text-white">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="h-16 w-16 rounded-full bg-white flex items-center justify-center border-2 border-white shadow-md">
+                                <span class="text-red-600 font-bold text-xl">
+                                    ${order.name.substring(0, 2).toUpperCase()}
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">${order.name}</h3>
+                                <p class="text-sm opacity-90">#${order.id}</p>
+                            </div>
+                        </div>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${statusClasses[order.status] || 'bg-white bg-opacity-20 text-white'}">
+                            ${order.status.charAt(0).toUpperCase() + order.status.slice(1)}
                         </span>
                     </div>
                 </div>
-                <div class="space-y-3">
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500">ID Pesanan</label>
-                        <p class="mt-1 text-sm text-gray-900">#${order.id}</p>
+                
+                <!-- Order details section - now in 3 columns -->
+                <div class="p-4">
+                    <!-- Main information in 3 columns -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <!-- First column - Customer Info -->
+                        <div class="border rounded-lg p-4 h-full">
+                            <h4 class="text-base font-medium text-gray-900 mb-3 pb-2 border-b">Informasi Pelanggan</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="text-xs text-gray-500">Email</label>
+                                    <p class="text-gray-800 font-medium">${order.email}</p>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-gray-500">Telepon</label>
+                                    <p class="text-gray-800 font-medium">${order.phone}</p>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-gray-500">Instagram</label>
+                                    <p class="text-gray-800 font-medium">@${order.instagram}</p>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-gray-500">Alamat</label>
+                                    <p class="text-gray-800 font-medium text-sm">${order.address}</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Second column - Order Info -->
+                        <div class="border rounded-lg p-4 h-full">
+                            <h4 class="text-base font-medium text-gray-900 mb-3 pb-2 border-b">Detail Menu</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="text-xs text-gray-500">Jenis Menu</label>
+                                    <p class="text-gray-800 font-medium">${order.menu_type}</p>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-gray-500">Jenis Hidangan</label>
+                                    <p class="text-gray-800 font-medium">${order.meal_types}</p>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-gray-500">Alergi</label>
+                                    <p class="text-gray-800 font-medium">${order.allergies || '-'}</p>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-gray-500">Catatan</label>
+                                    <p class="text-gray-800 font-medium">${order.notes || '-'}</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Third column - Schedule Info -->
+                        <div class="border rounded-lg p-4 h-full">
+                            <h4 class="text-base font-medium text-gray-900 mb-3 pb-2 border-b">Informasi Jadwal</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="text-xs text-gray-500">Tanggal Pesanan</label>
+                                    <p class="text-gray-800 font-medium">${formattedDate}</p>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-gray-500">Tanggal Mulai</label>
+                                    <p class="text-gray-800 font-medium">${formattedStartDate}</p>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-gray-500">Tanggal Selesai</label>
+                                    <p class="text-gray-800 font-medium">${formattedEndDate}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500">Nama Pelanggan</label>
-                        <p class="mt-1 text-sm text-gray-900">${order.name}</p>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500">Email</label>
-                        <p class="mt-1 text-sm text-gray-900">${order.email}</p>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500">Menu</label>
-                        <p class="mt-1 text-sm text-gray-900">${order.menu_type}</p>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500">Status</label>
-                        <p class="mt-1">
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${statusClasses[order.status] || 'bg-gray-100 text-gray-800'}">
-                                ${order.status.charAt(0).toUpperCase() + order.status.slice(1)}
-                            </span>
-                        </p>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500">Tanggal Pesanan</label>
-                        <p class="mt-1 text-sm text-gray-900">${formattedDate}</p>
+                    
+                    <!-- Action buttons -->
+                    <div class="flex justify-end space-x-3 mt-2">
+                        <a href="https://wa.me/${order.phone.replace(/\D/g, '')}" target="_blank" class="px-4 py-2 text-sm bg-red-600 hover:bg-red-700 rounded-md text-white flex items-center">
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            WhatsApp
+                        </a>
                     </div>
                 </div>
             </div>
@@ -354,32 +512,45 @@ function closeDetailModal() {
 
 // Delete Order Function
 async function deleteOrder(orderId) {
-if (!confirm('Apakah Anda yakin ingin menghapus pesanan ini?')) {
-    return;
-}
+    try {
+        const result = await Swal.fire({
+            title: 'Hapus Pesanan?',
+            text: "Tindakan ini tidak dapat dibatalkan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#7f1d1d',
+            cancelButtonColor: '#6b7280',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        });
 
-try {
-    const response = await fetch(`/orders/${orderId}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+        if (result.isConfirmed) {
+            const response = await fetch(`/orders/${orderId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                }
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                await Swal.fire({
+                    title: 'Terhapus!',
+                    text: 'Pesanan berhasil dihapus.',
+                    icon: 'success',
+                    timer: 1500
+                });
+                window.location.reload();
+            } else {
+                showToast(data.message || 'Gagal menghapus pesanan', 'error');
+            }
         }
-    });
-    
-    const data = await response.json();
-    
-    if (data.success) {
-        showToast(data.message);
-        setTimeout(() => {
-            window.location.reload();
-        }, 1000);
-    } else {
-        showToast(data.message, 'error');
+    } catch (error) {
+        showToast('Terjadi kesalahan saat menghapus pesanan', 'error');
+        console.error('Error deleting order:', error);
     }
-} catch (error) {
-    showToast('Terjadi kesalahan saat menghapus pesanan', 'error');
-}
 }
 
 // Close modals when clicking outside
@@ -426,4 +597,5 @@ window.addEventListener('resize', handleResize);
         });
     });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endpush
