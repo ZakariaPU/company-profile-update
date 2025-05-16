@@ -120,7 +120,7 @@
     </div>
 
 <!-- Create/Edit Modal -->
-<div id="userModal" class="hidden fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full z-50">
+<div id="userModal" class="hidden fixed inset-0 bg-black bg-opacity-20 overflow-y-auto h-full w-full z-50">
     <div class="relative top-20 mx-auto p-5 border w-full max-w-md shadow-xl rounded-xl bg-white transform transition-all">
         <div class="flex items-center justify-between pb-3 border-b">
             <h3 id="modalTitle" class="text-xl font-semibold text-gray-900"></h3>
@@ -210,7 +210,7 @@
 </div>
 
 <!-- Detail Modal -->
-<div id="detailModal" class="hidden fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full z-50">
+<div id="detailModal" class="hidden fixed inset-0 bg-black bg-opacity-20 overflow-y-auto h-full w-full z-50">
     <div class="relative top-20 mx-auto p-5 border w-full max-w-md shadow-xl rounded-xl bg-white transform transition-all">
         <div class="flex items-center justify-between pb-3 border-b">
             <h3 class="text-xl font-semibold text-gray-900">Detail Pengguna</h3>

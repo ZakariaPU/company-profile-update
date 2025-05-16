@@ -646,33 +646,40 @@ window.addEventListener('resize', handleResize);
     
     // Susun pesan yang akan dikirimkan
     const message = `
-    *RESAP KITCHEN*
-    ---------------------------
-    *DETAIL PESANAN #${order.id}*
-    ---------------------------
-    *INFORMASI PELANGGAN:*
-    Nama: ${order.name}
-    Email: ${order.email}
-    Telepon: ${order.phone}
-    Instagram: @${order.instagram}
-    Alamat: ${order.address}
-    ---------------------------
-    *DETAIL MENU:*
-    Jenis Menu: ${order.menu_type}
-    Jenis Hidangan: ${order.meal_types}
-    Alergi: ${order.allergies || '-'}
-    Catatan: ${order.notes || '-'}
-    ---------------------------
-    *INFORMASI JADWAL:*
-    Tanggal Pesanan: ${formattedDate}
-    Tanggal Mulai: ${formattedStartDate}
-    Tanggal Selesai: ${formattedEndDate}
-    ---------------------------
-    *STATUS PESANAN:* ${order.status.charAt(0).toUpperCase() + order.status.slice(1)}
-    ---------------------------
-    *Silakan hubungi kami jika ada pertanyaan lebih lanjut!*
-    *Terima kasih telah memesan di RESAP KITCHEN!*
+    🍽️ *RESAP KITCHEN* 🍽️
+    ==============================
+    📦 *DETAIL PESANAN #${order.id}*
+    ==============================
+
+    👤 *INFORMASI PELANGGAN*
+    ━━━━━━━━━━━━━━━━━━━━━━━
+    📛 Nama       : ${order.name}
+    📧 Email      : ${order.email}
+    📞 Telepon    : ${order.phone}
+    📸 Instagram  : @${order.instagram}
+    🏠 Alamat     : ${order.address}
+
+    🍴 *DETAIL MENU*
+    ━━━━━━━━━━━━━━━━━━━━━━━
+    📂 Jenis Menu     : ${order.menu_type}
+    🍽️ Jenis Hidangan: ${order.meal_types}
+    ⚠️ Alergi         : ${order.allergies || '-'}
+    📝 Catatan        : ${order.notes || '-'}
+
+    🗓️ *INFORMASI JADWAL*
+    ━━━━━━━━━━━━━━━━━━━━━━━
+    🧾 Tanggal Pesanan : ${formattedDate}
+    🚚 Tanggal Mulai   : ${formattedStartDate}
+    🏁 Tanggal Selesai : ${formattedEndDate}
+
+    📌 *STATUS PESANAN*
+    ━━━━━━━━━━━━━━━━━━━━━━━
+    📄 Status : *${order.status.charAt(0).toUpperCase() + order.status.slice(1)}*
+
+    📣 *Silakan hubungi kami jika ada pertanyaan lebih lanjut.*
+    🙏 *Terima kasih telah memesan di RESAP KITCHEN!*
     `;
+
 
     // Dapatkan nomor telepon tanpa karakter non-numerik
     const phoneNumber = order.phone.replace(/\D/g, '');
