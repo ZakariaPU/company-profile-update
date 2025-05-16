@@ -72,4 +72,3 @@ Route::get('/messages', function () {
 //         return view('admin.messages', compact('messages'));
 //     })->name('messages');
 // });
-
