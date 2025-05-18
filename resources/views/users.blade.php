@@ -4,6 +4,7 @@
 
 @section('content')
 
+
     <div class="flex-1 overflow-auto bg-gray-50">
         
 

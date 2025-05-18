@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'Beranda')
 
 @section('content')
 <!-- Hero Section -->
@@ -15,25 +15,25 @@
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <!-- Text Content -->
             <div class="text-white" data-aos="fade-up">
-                <span class="text-red-200 font-medium text-lg mb-4 block tracking-wider">LUXURY CATERING SERVICE</span>
+                <span class="text-red-200 font-medium text-lg mb-4 block tracking-wider">LAYANAN KATERING MEWAH</span>
                 <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-                    Crafting Culinary
-                    <span class="block text-red-200">Excellence</span>
+                    Menciptakan Keunggulan
+                    <span class="block text-red-200">Kuliner</span>
                 </h1>
                 <p class="text-xl mb-8 text-gray-100 leading-relaxed">
-                    Experience the perfect blend of flavors, presentation, and service. We transform your events into extraordinary culinary journeys.
+                    Rasakan perpaduan sempurna antara rasa, penyajian, dan pelayanan. Kami mengubah acara Anda menjadi perjalanan kuliner yang luar biasa.
                 </p>
                 <div class="flex flex-wrap gap-6">
-                    <a href="/services" class="group px-8 py-4 bg-white text-red-600 rounded-lg font-semibold hover:bg-red-50 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                    <a href="/layanan" class="group px-8 py-4 bg-white text-red-600 rounded-lg font-semibold hover:bg-red-50 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
                         <span class="flex items-center">
-                            Explore Menu
+                            Jelajahi Menu
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
                         </span>
                     </a>
-                    <a href="/contact" class="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
-                        Get Quote
+                    <a href="/kontak" class="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                        Minta Penawaran
                     </a>
                 </div>
             </div>
@@ -42,18 +42,18 @@
             <div class="hidden lg:grid grid-cols-12 gap-4 h-[600px]" data-aos="fade-left">
                 <div class="col-span-5 space-y-4">
                     <div class="rounded-2xl overflow-hidden shadow-2xl h-2/3 transform hover:scale-105 transition-all duration-500">
-                        <img src="assets\img\" alt="Gourmet Dish" class="w-full h-full object-cover">
+                        <img src="assets\img\" alt="Hidangan Gourmet" class="w-full h-full object-cover">
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-2xl h-1/3 transform hover:scale-105 transition-all duration-500">
-                        <img src="/api/placeholder/400/300" alt="Table Setting" class="w-full h-full object-cover">
+                        <img src="/api/placeholder/400/300" alt="Penataan Meja" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <div class="col-span-7 space-y-4 pt-16">
                     <div class="rounded-2xl overflow-hidden shadow-2xl h-1/3 transform hover:scale-105 transition-all duration-500">
-                        <img src="assets\img\.jpg" alt="Chef Preparation" class="w-full h-full object-cover">
+                        <img src="assets\img\.jpg" alt="Persiapan Chef" class="w-full h-full object-cover">
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-2xl h-2/3 transform hover:scale-105 transition-all duration-500">
-                        <img src="/api/placeholder/500/600" alt="Event Setup" class="w-full h-full object-cover">
+                        <img src="/api/placeholder/500/600" alt="Pengaturan Acara" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -69,8 +69,8 @@
                         </svg>
                     </div>
                     <div class="text-white">
-                        <h3 class="font-bold text-lg">24/7 Service</h3>
-                        <p class="text-red-100">Always at your service</p>
+                        <h3 class="font-bold text-lg">Layanan 24/7</h3>
+                        <p class="text-red-100">Selalu siap melayani Anda</p>
                     </div>
                 </div>
             </div>
@@ -83,8 +83,8 @@
                         </svg>
                     </div>
                     <div class="text-white">
-                        <h3 class="font-bold text-lg">Premium Quality</h3>
-                        <p class="text-red-100">Finest ingredients only</p>
+                        <h3 class="font-bold text-lg">Kualitas Premium</h3>
+                        <p class="text-red-100">Hanya bahan terbaik</p>
                     </div>
                 </div>
             </div>
@@ -97,8 +97,8 @@
                         </svg>
                     </div>
                     <div class="text-white">
-                        <h3 class="font-bold text-lg">Custom Menus</h3>
-                        <p class="text-red-100">Tailored to your taste</p>
+                        <h3 class="font-bold text-lg">Menu Kustom</h3>
+                        <p class="text-red-100">Disesuaikan dengan selera Anda</p>
                     </div>
                 </div>
             </div>
@@ -110,45 +110,45 @@
 <div class="py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-aos="fade-up">
-            <span class="text-red-600 font-medium text-lg mb-4 block tracking-wider">OUR SPECIALTIES</span>
-            <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-gray-900">Exquisite Catering Services</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Discover our range of premium catering services designed to make your event unforgettable</p>
+            <span class="text-red-600 font-medium text-lg mb-4 block tracking-wider">KEAHLIAN KAMI</span>
+            <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-gray-900">Layanan Katering Istimewa</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Temukan berbagai layanan katering premium kami yang dirancang untuk membuat acara Anda tak terlupakan</p>
         </div>
         
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Service 1 -->
             <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                 <div class="relative h-64 overflow-hidden">
-                    <img src="/api/placeholder/600/400" alt="Wedding Catering" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <img src="/api/placeholder/600/400" alt="Katering Pernikahan" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="absolute bottom-4 left-4 text-white">
-                        <h3 class="text-2xl font-bold">Wedding Celebrations</h3>
+                        <h3 class="text-2xl font-bold">Perayaan Pernikahan</h3>
                     </div>
                 </div>
                 <div class="p-6">
-                    <p class="text-gray-600 mb-4">Elegant catering solutions for your perfect wedding day, from intimate gatherings to grand celebrations.</p>
+                    <p class="text-gray-600 mb-4">Solusi katering elegan untuk hari pernikahan sempurna Anda, dari acara intim hingga perayaan megah.</p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center text-gray-600">
                             <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            Custom menu planning
+                            Perencanaan menu khusus
                         </li>
                         <li class="flex items-center text-gray-600">
                             <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            Professional service staff
+                            Staf pelayanan profesional
                         </li>
                         <li class="flex items-center text-gray-600">
                             <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            Full setup and cleanup
+                            Setup lengkap dan pembersihan
                         </li>
                     </ul>
-                    <a href="/services/weddings" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
-                        Learn More
+                    <a href="/layanan/pernikahan" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
+                        Pelajari Lebih Lanjut
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
@@ -159,36 +159,36 @@
             <!-- Service 2 -->
             <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
                 <div class="relative h-64 overflow-hidden">
-                    <img src="/api/placeholder/600/400" alt="Corporate Events" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <img src="/api/placeholder/600/400" alt="Acara Korporat" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="absolute bottom-4 left-4 text-white">
-                        <h3 class="text-2xl font-bold">Corporate Events</h3>
+                        <h3 class="text-2xl font-bold">Acara Korporat</h3>
                     </div>
                 </div>
                 <div class="p-6">
-                    <p class="text-gray-600 mb-4">Professional catering services for business meetings, conferences, and corporate gatherings.</p>
+                    <p class="text-gray-600 mb-4">Layanan katering profesional untuk rapat bisnis, konferensi, dan pertemuan korporat.</p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center text-gray-600">
                             <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            Breakfast & lunch options
+                            Pilihan sarapan & makan siang
                         </li>
                         <li class="flex items-center text-gray-600">
                             <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            Flexible scheduling
+                            Jadwal fleksibel
                         </li>
                         <li class="flex items-center text-gray-600">
                             <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            Corporate packages
+                            Paket korporat
                         </li>
                     </ul>
-                    <a href="/services/corporate" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
-                        Learn More
+                    <a href="/layanan/korporat" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
+                        Pelajari Lebih Lanjut
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
@@ -199,36 +199,36 @@
             <!-- Service 3 -->
             <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
                 <div class="relative h-64 overflow-hidden">
-                    <img src="/api/placeholder/600/400" alt="Private Parties" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <img src="/api/placeholder/600/400" alt="Pesta Pribadi" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="absolute bottom-4 left-4 text-white">
-                        <h3 class="text-2xl font-bold">Private Parties</h3>
+                        <h3 class="text-2xl font-bold">Pesta Pribadi</h3>
                     </div>
                 </div>
                 <div class="p-6">
-                    <p class="text-gray-600 mb-4">Personalized catering for birthdays, anniversaries, and special celebrations.</p>
+                    <p class="text-gray-600 mb-4">Katering personal untuk ulang tahun, anniversary, dan perayaan spesial lainnya.</p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center text-gray-600">
                             <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            Customized menus
+                            Menu yang disesuaikan
                         </li>
                         <li class="flex items-center text-gray-600">
                             <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            Theme-based decoration
+                            Dekorasi bertema
                         </li>
                         <li class="flex items-center text-gray-600">
                             <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
-                            Full event planning
+                            Perencanaan acara lengkap
                         </li>
                     </ul>
-                    <a href="/services/private-parties" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
-                        Learn More
+                    <a href="/layanan/pesta-pribadi" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
+                        Pelajari Lebih Lanjut
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
@@ -243,21 +243,21 @@
 <div class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-aos="fade-up">
-            <span class="text-red-600 font-medium text-lg mb-4 block tracking-wider">OUR PORTFOLIO</span>
-            <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-gray-900">Recent Events</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Take a look at some of our recent catering events and creative culinary presentations</p>
+            <span class="text-red-600 font-medium text-lg mb-4 block tracking-wider">PORTOFOLIO KAMI</span>
+            <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-gray-900">Acara Terbaru</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Lihatlah beberapa acara katering terbaru kami dan kreasi presentasi kuliner</p>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-8">
             @for ($i = 1; $i <= 6; $i++)
             <div class="group relative overflow-hidden rounded-2xl shadow-lg aspect-square" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
-                <img src="/api/placeholder/600/600" alt="Event {{ $i }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700">
+                <img src="/api/placeholder/600/600" alt="Acara {{ $i }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Elegant Wedding Reception</h3>
-                        <p class="text-gray-300 text-sm">A beautiful celebration at Garden Villa</p>
-                        <a href="/gallery" class="inline-flex items-center text-white mt-4 font-medium hover:text-red-200 transition-colors">
-                            View Gallery
+                        <h3 class="text-xl font-bold text-white mb-2">Resepsi Pernikahan Elegan</h3>
+                        <p class="text-gray-300 text-sm">Perayaan indah di Garden Villa</p>
+                        <a href="/galeri" class="inline-flex items-center text-white mt-4 font-medium hover:text-red-200 transition-colors">
+                            Lihat Galeri
                             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
@@ -274,9 +274,9 @@
 <div class="py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-aos="fade-up">
-            <span class="text-red-600 font-medium text-lg mb-4 block tracking-wider">TESTIMONIALS</span>
-            <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-gray-900">What Our Clients Say</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Read about the experiences of our valued customers</p>
+            <span class="text-red-600 font-medium text-lg mb-4 block tracking-wider">TESTIMONI</span>
+            <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-gray-900">Apa Kata Klien Kami</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Baca pengalaman dari pelanggan berharga kami</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
@@ -293,12 +293,12 @@
                     <svg class="absolute -top-4 -left-4 w-8 h-8 text-red-200" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M11.9 3.75c-4.55 0-8.23 3.68-8.23 8.23s3.68 8.23 8.23 8.23 8.23-3.68 8.23-8.23-3.69-8.23-8.23-8.23zm.02 13c-.65 0-1.18-.53-1.18-1.18s.53-1.18 1.18-1.18 1.18.53 1.18 1.18-.53 1.18-1.18 1.18zm1.27-4.65c-.29.67-.86 1.12-1.52 1.12-.66 0-1.23-.45-1.52-1.12-.16-.37-.25-.77-.25-1.18 0-1.63 1.32-2.95 2.95-2.95s2.95 1.32 2.95 2.95c0 .41-.09.81-.25 1.18z"/>
                     </svg>
-                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">"The attention to detail and quality of service provided was exceptional. Our wedding guests couldn't stop raving about the food!"</p>
+                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">"Perhatian terhadap detail dan kualitas layanan yang diberikan sangat luar biasa. Tamu pernikahan kami tidak berhenti memuji makanannya!"</p>
                     <div class="flex items-center">
-                        <img src="/api/placeholder/100/100" alt="Client {{ $i }}" class="w-14 h-14 rounded-full object-cover ring-4 ring-red-50">
+                        <img src="/api/placeholder/100/100" alt="Klien {{ $i }}" class="w-14 h-14 rounded-full object-cover ring-4 ring-red-50">
                         <div class="ml-4">
                             <h4 class="font-bold text-gray-900">Sarah & Michael</h4>
-                            <p class="text-red-600">Wedding Reception</p>
+                            <p class="text-red-600">Resepsi Pernikahan</p>
                         </div>
                     </div>
                 </div>
@@ -308,7 +308,7 @@
     </div>
 </div>
 
-<a href="https://wa.me/your_whatsapp_number" target="_blank" class="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+<a href="https://wa.me/" target="_blank" class="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
     <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.4 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z" />
     </svg>
