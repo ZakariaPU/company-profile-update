@@ -6,47 +6,113 @@
     <div class="flex-1 overflow-auto bg-gray-50">
 
 
-            <!-- Search & Filter Card -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mt-6 mb-6 md:mb-8 ml-4 mr-4 md:ml-8 md:mr-8">
-                <form action="" method="GET" class="flex flex-col md:flex-row md:items-end gap-4">
-                    <div class="w-full md:w-1/5">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Pencarian</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-search text-gray-400"></i>
-                            </div>
-                            <input type="text" name="search" value="{{ request('search') }}" 
-                                placeholder="Cari nama, email, ID..."
-                                class="pl-10 w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500">
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/5">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal Mulai</label>
-                        <input type="date" name="start_date" value="{{ request('start_date') }}" 
-                            class="w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500">
-                    </div>
-                    <div class="w-full md:w-1/5">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal Akhir</label>
-                        <input type="date" name="end_date" value="{{ request('end_date') }}"
-                            class="w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500">
-                    </div>
-                    <div class="w-full md:w-1/5">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
-                        <select name="status" class="w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500">
-                            <option value="">Semua Status</option>
-                            <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Pending</option>
-                            <option value="processing" {{ request('status') == 'processing' ? 'selected' : '' }}>Processing</option>
-                            <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>Completed</option>
-                            <option value="cancelled" {{ request('status') == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
-                        </select>
-                    </div>
-                    <div class="w-full md:w-auto md:ml-4">
-                        <button type="submit" class="w-full md:w-auto bg-red-900 text-white px-6 py-2 rounded-lg hover:bg-red-800 transition-colors duration-200">
-                            <i class="fas fa-filter mr-2"></i>Filter
-                        </button>
-                    </div>
-                </form>
+<!-- Search & Filter Card -->
+<div class="bg-white rounded-xl shadow-lg border border-gray-100 p-5 mt-6 mb-6 md:mb-8 ml-4 mr-4 md:ml-8 md:mr-8">
+    <h3 class="text-gray-800 font-medium mb-4">Filter Pencarian</h3>
+    <form action="" method="GET" class="flex flex-col md:flex-row md:items-end gap-4">
+        <div class="w-full md:w-1/5">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Pencarian</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-red-500"></i>
+                </div>
+                <input type="text" name="search" value="{{ request('search') }}" 
+                    placeholder="Cari nama, email, ID..."
+                    class="pl-10 w-full h-11 rounded-lg border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500 focus:ring-opacity-30 transition-all duration-200">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                    <button type="button" class="text-gray-400 hover:text-red-500" onclick="this.previousElementSibling.previousElementSibling.value = ''">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
             </div>
+        </div>
+        <div class="w-full md:w-1/5">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Mulai</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="far fa-calendar-alt text-gray-400"></i>
+                </div>
+                <input type="date" name="start_date" value="{{ request('start_date') }}" 
+                    class="pl-10 w-full h-11 rounded-lg border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500 focus:ring-opacity-30 transition-all duration-200">
+            </div>
+        </div>
+        <div class="w-full md:w-1/5">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Akhir</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="far fa-calendar-alt text-gray-400"></i>
+                </div>
+                <input type="date" name="end_date" value="{{ request('end_date') }}"
+                    class="pl-10 w-full h-11 rounded-lg border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500 focus:ring-opacity-30 transition-all duration-200">
+            </div>
+        </div>
+        <div class="w-full md:w-1/5">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-tag text-gray-400"></i>
+                </div>
+                <select name="status" class="pl-10 w-full h-11 rounded-lg border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500 focus:ring-opacity-30 transition-all duration-200 appearance-none">
+                    <option value="">Semua Status</option>
+                    <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Pending</option>
+                    <option value="processing" {{ request('status') == 'processing' ? 'selected' : '' }}>Processing</option>
+                    <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>Completed</option>
+                    <option value="cancelled" {{ request('status') == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+        <div class="w-full md:w-auto md:ml-4">
+            <button type="submit" class="w-full md:w-auto bg-gradient-to-r from-red-800 to-red-900 text-white px-6 py-3 h-11 rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-200 font-medium shadow-md flex items-center justify-center space-x-2">
+                <i class="fas fa-filter"></i>
+                <span>Filter</span>
+            </button>
+        </div>
+    </form>
+    <div class="flex justify-end mt-4">
+        <a href="" class="text-sm text-red-600 hover:text-red-800 font-medium flex items-center">
+            <i class="fas fa-redo-alt mr-1"></i>
+            Reset Filter
+        </a>
+    </div>
+</div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add animation effect to the card
+        const filterCard = document.querySelector('.rounded-xl');
+        filterCard.classList.add('animate-fadeIn');
+        
+        // Focus effect for inputs
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('ring-2', 'ring-red-100');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('ring-2', 'ring-red-100');
+            });
+        });
+    });
+    </script>
+
+    <style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fadeIn {
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    </style>
 
             <!-- Orders Tabel -->
             <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden p-4 mt-6 mb-6 md:mb-8 ml-4 mr-4 md:ml-8 md:mr-8">
