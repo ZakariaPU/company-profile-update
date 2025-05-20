@@ -249,7 +249,7 @@
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-8">
-            @for ($i = 1; $i <= 6; $i++)
+            @for ($i = 1; $i <= 3; $i++)
             <div class="group relative overflow-hidden rounded-2xl shadow-lg aspect-square" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
                 <img src="/api/placeholder/600/600" alt="Acara {{ $i }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -308,9 +308,14 @@
     </div>
 </div>
 
-<a href="https://wa.me/" target="_blank" class="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
-    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.4 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z" />
-    </svg>
+<!-- WhatsApp Button -->
+<a href="https://wa.me/628112658048" target="_blank" 
+   class="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 z-50">
+    <div class="flex items-center">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+        </svg>
+        <span class="ml-2">Chat Kami</span>
+    </div>
 </a>
 @endsection

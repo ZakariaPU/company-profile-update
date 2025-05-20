@@ -3,6 +3,34 @@
 @section('title', 'Pesan Katering Premium')
 
 @section('content')
+
+    <style>
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .faq-content.active {
+            max-height: 500px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .faq-arrow {
+            transition: transform 0.3s ease;
+        }
+        .faq-arrow.rotated {
+            transform: rotate(180deg);
+        }
+        .faq-item {
+            border: 1px solid #fecaca;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 <!-- Hero Section with Parallax -->
 <div class="relative min-h-screen pt-32 pb-48 bg-gradient-to-br from-red-950 via-red-900 to-red-800 overflow-hidden">
     <div class="absolute inset-0">
@@ -241,28 +269,257 @@
 </div>
 
 <!-- FAQ Section -->
-<div class="py-24 bg-red-50">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-red-900 mb-6">Pertanyaan Umum</h2>
+ <div class="py-12 px-4 max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-rose-900 mb-4">Pertanyaan Umum</h2>
             <p class="text-gray-600">Temukan jawaban untuk pertanyaan yang sering diajukan</p>
         </div>
         
-        <div class="space-y-6">
-            @foreach(['Bagaimana cara memesan?', 'Berapa lama pengiriman?', 'Metode pembayaran apa saja?'] as $question)
-            <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-red-50 transition-colors">
-                    <span class="font-medium text-red-900">{{ $question }}</span>
-                    <i class="fas fa-chevron-down text-red-900"></i>
+        <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item bg-white rounded-lg overflow-hidden">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-rose-50 transition-colors" onclick="toggleFAQ(this)">
+                    <span class="font-medium text-rose-900 text-lg">Bagaimana cara memesan?</span>
+                    <div class="faq-arrow text-rose-600">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
                 </button>
-                <div class="px-6 py-4 border-t border-red-100 hidden">
-                    <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="faq-content px-6 bg-rose-25">
+                    <div class="border-t border-rose-100">
+                        <div class="pt-4 pb-2">
+                            <p class="text-gray-700 mb-4">
+                                Untuk memesan produk kami, Anda dapat mengikuti langkah-langkah berikut:
+                            </p>
+                            <ol class="list-decimal list-inside text-gray-700 space-y-2 pl-4">
+                                <li>Pilih produk yang diinginkan dari katalog kami</li>
+                                <li>Silakan isi formulir pemesanan yang telah tersedia</li>
+                                <li>Periksa pesanan Anda</li>
+                                <li>Klik "Kirim Pesanan"</li>
+                                <li>Cek E-mail yang Anda isikan di formulir pemesanan untuk mengetahui detail pesanan</li>
+                                <li>Anda akan menerima konfirmasi melalui WhatsApp oleh Admin</li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
-            @endforeach
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item bg-white rounded-lg overflow-hidden">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-rose-50 transition-colors" onclick="toggleFAQ(this)">
+                    <span class="font-medium text-rose-900 text-lg">Berapa lama pengiriman?</span>
+                    <div class="faq-arrow text-rose-600">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content px-6 bg-rose-25">
+                    <div class="border-t border-rose-100">
+                        <div class="pt-4 pb-2">
+                            <p class="text-gray-700 mb-4">
+                                Waktu pengiriman bervariasi tergantung lokasi dan jenis pengiriman yang dipilih:
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium text-gray-800">Jabodetabek:</span>
+                                    <span class="text-gray-700">1-2 hari kerja</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium text-gray-800">Jawa & Bali:</span>
+                                    <span class="text-gray-700">2-3 hari kerja</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium text-gray-800">Sumatra & Sulawesi:</span>
+                                    <span class="text-gray-700">3-5 hari kerja</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium text-gray-800">Papua & NTT:</span>
+                                    <span class="text-gray-700">5-7 hari kerja</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mt-4 text-sm italic">
+                                * Pengiriman express tersedia dengan biaya tambahan untuk pengiriman lebih cepat.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item bg-white rounded-lg overflow-hidden">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-rose-50 transition-colors" onclick="toggleFAQ(this)">
+                    <span class="font-medium text-rose-900 text-lg">Metode pembayaran apa saja?</span>
+                    <div class="faq-arrow text-rose-600">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content px-6 bg-rose-25">
+                    <div class="border-t border-rose-100">
+                        <div class="pt-4 pb-2">
+                            <p class="text-gray-700 mb-4">
+                                Kami menerima berbagai metode pembayaran untuk kemudahan bertransaksi:
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-bold text-rose-900 mb-3">Transfer Bank</h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-2 h-2 bg-rose-500 rounded-full"></div>
+                                            <span class="text-gray-700">BCA</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-2 h-2 bg-rose-500 rounded-full"></div>
+                                            <span class="text-gray-700">BNI</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-2 h-2 bg-rose-500 rounded-full"></div>
+                                            <span class="text-gray-700">BRI</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-2 h-2 bg-rose-500 rounded-full"></div>
+                                            <span class="text-gray-700">Mandiri</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-bold text-rose-900 mb-3">E-Wallet & Lainnya</h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-2 h-2 bg-rose-500 rounded-full"></div>
+                                            <span class="text-gray-700">GoPay</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-2 h-2 bg-rose-500 rounded-full"></div>
+                                            <span class="text-gray-700">OVO</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-2 h-2 bg-rose-500 rounded-full"></div>
+                                            <span class="text-gray-700">DANA</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-2 h-2 bg-rose-500 rounded-full"></div>
+                                            <span class="text-gray-700">ShopeePay</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item bg-white rounded-lg overflow-hidden">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-rose-50 transition-colors" onclick="toggleFAQ(this)">
+                    <span class="font-medium text-rose-900 text-lg">Bagaimana kebijakan pengembalian barang?</span>
+                    <div class="faq-arrow text-rose-600">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content px-6 bg-rose-25">
+                    <div class="border-t border-rose-100">
+                        <div class="pt-4 pb-2">
+                            <p class="text-gray-700 mb-4">
+                                Kami menyediakan kebijakan pengembalian yang mudah dan fleksibel:
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-start space-x-3">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center mt-0.5">
+                                        <span class="text-rose-600 font-bold text-sm">1</span>
+                                    </div>
+                                    <span class="text-gray-700">Pengembalian dapat dilakukan dalam 7 hari setelah barang diterima</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center mt-0.5">
+                                        <span class="text-rose-600 font-bold text-sm">2</span>
+                                    </div>
+                                    <span class="text-gray-700">Barang harus dalam kondisi asli dan belum digunakan</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center mt-0.5">
+                                        <span class="text-rose-600 font-bold text-sm">3</span>
+                                    </div>
+                                    <span class="text-gray-700">Kemasan asli dan label harus tetap utuh</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center mt-0.5">
+                                        <span class="text-rose-600 font-bold text-sm">4</span>
+                                    </div>
+                                    <span class="text-gray-700">Biaya pengiriman pengembalian ditanggung pembeli (kecuali barang cacat)</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center mt-0.5">
+                                        <span class="text-rose-600 font-bold text-sm">5</span>
+                                    </div>
+                                    <span class="text-gray-700">Refund akan diproses dalam 3-5 hari kerja setelah barang kami terima</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item bg-white rounded-lg overflow-hidden">
+                <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-rose-50 transition-colors" onclick="toggleFAQ(this)">
+                    <span class="font-medium text-rose-900 text-lg">Apakah ada garansi untuk produk?</span>
+                    <div class="faq-arrow text-rose-600">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content px-6 bg-rose-25">
+                    <div class="border-t border-rose-100">
+                        <div class="pt-4 pb-2">
+                            <p class="text-gray-700 mb-4">
+                                Ya, semua produk kami dilengkapi dengan garansi sesuai kategori:
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white p-4 rounded-lg border-l-4 border-rose-500">
+                                    <h5 class="font-bold text-rose-900 mb-2">Elektronik</h5>
+                                    <p class="text-gray-700 text-sm">Garansi resmi 1-2 tahun</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border-l-4 border-rose-500">
+                                    <h5 class="font-bold text-rose-900 mb-2">Fashion</h5>
+                                    <p class="text-gray-700 text-sm">Garansi kualitas 30 hari</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border-l-4 border-rose-500">
+                                    <h5 class="font-bold text-rose-900 mb-2">Rumah Tangga</h5>
+                                    <p class="text-gray-700 text-sm">Garansi 6 bulan - 1 tahun</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border-l-4 border-rose-500">
+                                    <h5 class="font-bold text-rose-900 mb-2">Aksesoris</h5>
+                                    <p class="text-gray-700 text-sm">Garansi 3-6 bulan</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-3 bg-rose-50 rounded-lg">
+                                <p class="text-gray-600 text-sm">
+                                    <strong>Catatan:</strong> Garansi berlaku untuk kerusakan normal dan tidak mencakup kerusakan akibat penyalahgunaan atau kecelakaan.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
+<a href="https://wa.me/628112658048" target="_blank" 
+   class="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 z-50">
+    <div class="flex items-center">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+        </svg>
+        <span class="ml-2">Chat Kami</span>
+    </div>
+</a>
 @endsection
 
 @push('scripts')
@@ -485,5 +742,64 @@ document.addEventListener('DOMContentLoaded', function() {
     startDate.addEventListener('change', validateDates);
     endDate.addEventListener('change', validateDates);
 });
+
+function toggleFAQ(button) {
+            // Get the content div that follows the button
+            const content = button.nextElementSibling;
+            const arrow = button.querySelector('.faq-arrow');
+            
+            // Close all other FAQ items first
+            const allContents = document.querySelectorAll('.faq-content');
+            const allArrows = document.querySelectorAll('.faq-arrow');
+            
+            allContents.forEach((item, index) => {
+                if (item !== content) {
+                    item.classList.remove('active');
+                    allArrows[index].classList.remove('rotated');
+                }
+            });
+            
+            // Toggle current FAQ item
+            const isActive = content.classList.contains('active');
+            if (isActive) {
+                content.classList.remove('active');
+                arrow.classList.remove('rotated');
+            } else {
+                content.classList.add('active');
+                arrow.classList.add('rotated');
+            }
+        }
+
+        // Optional: Close all FAQs when clicking outside the FAQ section
+        document.addEventListener('click', function(event) {
+            const faqContainer = document.querySelector('.space-y-4');
+            if (!faqContainer.contains(event.target)) {
+                const allContents = document.querySelectorAll('.faq-content');
+                const allArrows = document.querySelectorAll('.faq-arrow');
+                
+                allContents.forEach((content, index) => {
+                    content.classList.remove('active');
+                    allArrows[index].classList.remove('rotated');
+                });
+            }
+        });
+
+        // Smooth scroll to expanded FAQ
+        document.querySelectorAll('.faq-item button').forEach(button => {
+            button.addEventListener('click', function() {
+                setTimeout(() => {
+                    const content = this.nextElementSibling;
+                    if (content.classList.contains('active')) {
+                        const rect = this.parentElement.getBoundingClientRect();
+                        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        
+                        window.scrollTo({
+                            top: scrollTop + rect.top - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 200);
+            });
+        });
 </script>
 @endpush

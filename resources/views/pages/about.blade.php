@@ -22,7 +22,7 @@
         <div class="space-y-8" data-aos="fade-up" data-aos-duration="1000">
             <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">
                 Resap
-                <span class="block mt-2 text-red-300">Catering</span>
+                <span class="block mt-2 text-red-300">Kitchen</span>
             </h1>
             <p class="text-xl md:text-2xl text-red-100 max-w-3xl mx-auto leading-relaxed">
                 Penyedia jasa catering harian sehat di Yogyakarta sejak 2019
@@ -124,7 +124,7 @@
                     [
                         'icon' => 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
                         'title' => 'Dapat Diandalkan',
-                        'desc' => 'Konsistensi dalam setiap pengalaman catering dengan pengantaran rutin'
+                        'desc' => 'Konsistensi dalam setiap pengalaman catering dengan pengantaran rutin setiap hari'
                     ]
                 ];
             @endphp
@@ -284,10 +284,14 @@
     </div>
 </div>
 
-<a href="https://wa.me/your_whatsapp_number" target="_blank" class="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
-    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.4 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z" />
-    </svg>
+<a href="https://wa.me/628112658048" target="_blank" 
+   class="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 z-50">
+    <div class="flex items-center">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+        </svg>
+        <span class="ml-2">Chat Kami</span>
+    </div>
 </a>
 
 @endsection

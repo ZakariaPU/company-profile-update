@@ -126,55 +126,56 @@
                     'author' => 'Dr. Fadli Rahman',
                     'readTime' => '6 menit',
                     'date' => '25 Januari 2025'
-                ],
-                [
-                    'title' => 'Superfood yang Harus Ada di Piring Anda',
-                    'category' => 'makanan-sehat',
-                    'excerpt' => 'Kenali berbagai superfood yang dapat meningkatkan kesehatan Anda.',
-                    'author' => 'Diana Putri',
-                    'readTime' => '5 menit',
-                    'date' => '24 Januari 2025'
-                ],
-                [
-                    'title' => 'Kesalahan Umum yang Harus Dihindari Saat Diet',
-                    'category' => 'tips-diet',
-                    'excerpt' => 'Hindari kesalahan umum yang sering dilakukan saat menjalani diet.',
-                    'author' => 'Dr. Rina Wijaya',
-                    'readTime' => '9 menit',
-                    'date' => '23 Januari 2025'
-                ],
-                [
-                    'title' => 'Tempat Makan Sehat yang Instagramable di Yogyakarta',
-                    'category' => 'yogyakarta',
-                    'excerpt' => 'Temukan tempat makan sehat di Yogyakarta yang juga Instagramable.',
-                    'author' => 'Maya Kusuma',
-                    'readTime' => '7 menit',
-                    'date' => '22 Januari 2025'
-                ],
-                [
-                    'title' => 'Pentingnya Hidrasi dalam Diet Sehat',
-                    'category' => 'Lainya',
-                    'excerpt' => 'Mengapa hidrasi sangat penting dalam program diet Anda.',
-                    'author' => 'Dr. Hadi Wijaya',
-                    'readTime' => '5 menit',
-                    'date' => '21 Januari 2025'
-                ],
-                [
-                    'title' => 'Menu Sarapan Sehat untuk Awali Hari',
-                    'category' => 'makanan-sehat',
-                    'excerpt' => 'Mulai hari Anda dengan sarapan sehat dan bergizi tinggi.',
-                    'author' => 'Chef Anita',
-                    'readTime' => '6 menit',
-                    'date' => '20 Januari 2025'
-                ],
-                [
-                    'title' => 'Resep Smoothie Bowl untuk Diet Sehat',
-                    'category' => 'makanan-sehat',
-                    'excerpt' => 'Kreasi smoothie bowl sehat dan lezat untuk menu diet Anda.',
-                    'author' => 'Chef Maria',
-                    'readTime' => '4 menit',
-                    'date' => '19 Januari 2025'
                 ]
+                // ,
+                // [
+                //     'title' => 'Superfood yang Harus Ada di Piring Anda',
+                //     'category' => 'makanan-sehat',
+                //     'excerpt' => 'Kenali berbagai superfood yang dapat meningkatkan kesehatan Anda.',
+                //     'author' => 'Diana Putri',
+                //     'readTime' => '5 menit',
+                //     'date' => '24 Januari 2025'
+                // ],
+                // [
+                //     'title' => 'Kesalahan Umum yang Harus Dihindari Saat Diet',
+                //     'category' => 'tips-diet',
+                //     'excerpt' => 'Hindari kesalahan umum yang sering dilakukan saat menjalani diet.',
+                //     'author' => 'Dr. Rina Wijaya',
+                //     'readTime' => '9 menit',
+                //     'date' => '23 Januari 2025'
+                // ],
+                // [
+                //     'title' => 'Tempat Makan Sehat yang Instagramable di Yogyakarta',
+                //     'category' => 'yogyakarta',
+                //     'excerpt' => 'Temukan tempat makan sehat di Yogyakarta yang juga Instagramable.',
+                //     'author' => 'Maya Kusuma',
+                //     'readTime' => '7 menit',
+                //     'date' => '22 Januari 2025'
+                // ],
+                // [
+                //     'title' => 'Pentingnya Hidrasi dalam Diet Sehat',
+                //     'category' => 'Lainya',
+                //     'excerpt' => 'Mengapa hidrasi sangat penting dalam program diet Anda.',
+                //     'author' => 'Dr. Hadi Wijaya',
+                //     'readTime' => '5 menit',
+                //     'date' => '21 Januari 2025'
+                // ],
+                // [
+                //     'title' => 'Menu Sarapan Sehat untuk Awali Hari',
+                //     'category' => 'makanan-sehat',
+                //     'excerpt' => 'Mulai hari Anda dengan sarapan sehat dan bergizi tinggi.',
+                //     'author' => 'Chef Anita',
+                //     'readTime' => '6 menit',
+                //     'date' => '20 Januari 2025'
+                // ],
+                // [
+                //     'title' => 'Resep Smoothie Bowl untuk Diet Sehat',
+                //     'category' => 'makanan-sehat',
+                //     'excerpt' => 'Kreasi smoothie bowl sehat dan lezat untuk menu diet Anda.',
+                //     'author' => 'Chef Maria',
+                //     'readTime' => '4 menit',
+                //     'date' => '19 Januari 2025'
+                // ]
             ];
             @endphp
 
@@ -257,11 +258,14 @@
 </div> --}}
 
 <!-- Enhanced WhatsApp Button -->
-<a href="https://wa.me/your_whatsapp_number" target="_blank" 
+<a href="https://wa.me/628112658048" target="_blank" 
    class="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 z-50">
-    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.4 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z" />
-    </svg>
+    <div class="flex items-center">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+        </svg>
+        <span class="ml-2">Chat Kami</span>
+    </div>
 </a>
 
 @endsection
