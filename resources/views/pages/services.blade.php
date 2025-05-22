@@ -48,7 +48,7 @@
                 <!-- Healthy Lite -->
                 <div class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                     <div class="aspect-w-16 aspect-h-9 relative overflow-hidden">
-                        <img src="assets\img\LVR00535.jpg" alt="Healthy Lite" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"/>
+                        <img src="assets\img_web\healthy_lite.jpg" alt="Healthy Lite" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         <div class="absolute bottom-4 left-4">
                             <span class="inline-block px-3 py-1 bg-green-500 text-white rounded-full text-sm font-medium">
@@ -78,22 +78,22 @@
                                 Porsi tepat untuk diet
                             </li>
                         </ul>
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-red-900">Rp 45.000</span>
-                            <button class="px-6 py-3 bg-red-900 text-white rounded-lg hover:bg-red-800 transition-colors flex items-center">
-                                Pesan Sekarang
-                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                                </svg>
-                            </button>
-                        </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold text-red-900">Rp 25.000</span>
+                        <a href="/catering" class="px-6 py-3 bg-red-900 text-white rounded-lg hover:bg-red-800 transition-colors flex items-center">
+                            Pesan Sekarang
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                    </div>
                     </div>
                 </div>
 
                 <!-- Healthy Gourmet -->
                 <div class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                     <div class="aspect-w-16 aspect-h-9 relative overflow-hidden">
-                        <img src="assets\img\LVR00535.jpg" alt="Healthy Gourmet" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"/>
+                        <img src="assets\img_web\healthy_gourmet.jpg" alt="Healthy Gourmet" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         <div class="absolute bottom-4 left-4">
                             <span class="inline-block px-3 py-1 bg-purple-500 text-white rounded-full text-sm font-medium">
@@ -123,15 +123,15 @@
                                 Plating eksklusif
                             </li>
                         </ul>
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-red-900">Rp 65.000</span>
-                            <button class="px-6 py-3 bg-red-900 text-white rounded-lg hover:bg-red-800 transition-colors flex items-center">
-                                Pesan Sekarang
-                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                                </svg>
-                            </button>
-                        </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold text-red-900">Rp 25.000</span>
+                        <a href="/catering" class="px-6 py-3 bg-red-900 text-white rounded-lg hover:bg-red-800 transition-colors flex items-center">
+                            Pesan Sekarang
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -153,7 +153,7 @@
                 <!-- Nusantara Hype -->
                 <div class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                     <div class="aspect-w-16 aspect-h-9 relative overflow-hidden">
-                        <img src="assets\img\LVR00535.jpg" alt="Nusantara Hype" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"/>
+                        <img src="assets\img_web\hype.jpg" alt="Nusantara Hype" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         <div class="absolute bottom-4 left-4">
                             <span class="inline-block px-3 py-1 bg-yellow-500 text-white rounded-full text-sm font-medium">
@@ -183,24 +183,21 @@
                                 Rasa autentik dengan tampilan modern
                             </li>
                         </ul>
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <span class="text-2xl font-bold text-red-900">Rp 55.000</span>
-                                <span class="text-sm text-gray-500 ml-2">per porsi</span>
-                            </div>
-                            <button class="px-6 py-3 bg-red-900 text-white rounded-lg hover:bg-red-800 transition-colors flex items-center group">
-                                <span>Pesan Sekarang</span>
-                                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                                </svg>
-                            </button>
-                        </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold text-red-900">Rp 25.000</span>
+                        <a href="/catering" class="px-6 py-3 bg-red-900 text-white rounded-lg hover:bg-red-800 transition-colors flex items-center">
+                            Pesan Sekarang
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                    </div>
                     </div>
                 </div>
                 <!-- Nusantara Fit -->
                 <div class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
                     <div class="aspect-w-16 aspect-h-9 relative overflow-hidden">
-                        <img src="assets\img\LVR00535.jpg" alt="Nusantara Fit" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"/>
+                        <img src="assets\img_web\lite.jpg" alt="Nusantara Fit" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         <div class="absolute bottom-4 left-4">
                             <span class="inline-block px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-medium">
@@ -230,15 +227,15 @@
                                 Tetap otentik, lebih sehat
                             </li>
                         </ul>
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-red-900">Rp 58.000</span>
-                            <button class="px-6 py-3 bg-red-900 text-white rounded-lg hover:bg-red-800 transition-colors flex items-center">
-                                Pesan Sekarang
-                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                                </svg>
-                            </button>
-                        </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold text-red-900">Rp 25.000</span>
+                        <a href="/catering" class="px-6 py-3 bg-red-900 text-white rounded-lg hover:bg-red-800 transition-colors flex items-center">
+                            Pesan Sekarang
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                    </div>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <!-- Text Content -->
             <div class="text-white" data-aos="fade-up">
-                <span class="text-red-200 font-medium text-lg mb-4 block tracking-wider">LAYANAN KATERING MEWAH</span>
+               <span class="mt-6 text-red-200 font-medium text-lg mb-4 block tracking-wider">LAYANAN KATERING MEWAH</span>
                 <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
                     Menciptakan Keunggulan
                     <span class="block text-red-200">Kuliner</span>
@@ -39,21 +39,22 @@
             </div>
 
             <!-- Image Grid -->
-            <div class="hidden lg:grid grid-cols-12 gap-4 h-[600px]" data-aos="fade-left">
+            {{-- <div class="hidden lg:grid grid-cols-12 gap-4 h-[420px]" data-aos="fade-left"> --}}
+            <div class="hidden lg:grid grid-cols-12 gap-4 h-[420px] w-full overflow-hidden" data-aos="fade-left">  
                 <div class="col-span-5 space-y-4">
                     <div class="rounded-2xl overflow-hidden shadow-2xl h-2/3 transform hover:scale-105 transition-all duration-500">
-                        <img src="assets\img\" alt="Hidangan Gourmet" class="w-full h-full object-cover">
+                        <img src="assets\img_web\gourmet.jpg" alt="Hidangan Gourmet" class="w-full h-full object-cover">
                     </div>
-                    <div class="rounded-2xl overflow-hidden shadow-2xl h-1/3 transform hover:scale-105 transition-all duration-500">
-                        <img src="/api/placeholder/400/300" alt="Penataan Meja" class="w-full h-full object-cover">
-                    </div>
+                    {{-- <div class="rounded-2xl overflow-hidden shadow-2xl h-1/3 transform hover:scale-105 transition-all duration-500">
+                        <img src="assets\img_web\penataan meja.jpg" alt="Penataan Meja" class="w-full h-full object-cover">
+                    </div> --}}
                 </div>
                 <div class="col-span-7 space-y-4 pt-16">
-                    <div class="rounded-2xl overflow-hidden shadow-2xl h-1/3 transform hover:scale-105 transition-all duration-500">
-                        <img src="assets\img\.jpg" alt="Persiapan Chef" class="w-full h-full object-cover">
-                    </div>
+                    {{-- <div class="rounded-2xl overflow-hidden shadow-2xl h-1/3 transform hover:scale-105 transition-all duration-500">
+                        <img src="assets\img_web\penataan meja.jpg" alt="Persiapan Chef" class="w-full h-full object-cover">
+                    </div> --}}
                     <div class="rounded-2xl overflow-hidden shadow-2xl h-2/3 transform hover:scale-105 transition-all duration-500">
-                        <img src="/api/placeholder/500/600" alt="Pengaturan Acara" class="w-full h-full object-cover">
+                        <img src="assets\img_web\penataan meja.jpg" alt="Pengaturan Acara" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -119,7 +120,7 @@
             <!-- Service 1 -->
             <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                 <div class="relative h-64 overflow-hidden">
-                    <img src="/api/placeholder/600/400" alt="Katering Pernikahan" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <img src="assets\img_web\katering pernikahan.jpg" alt="Katering Pernikahan" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="absolute bottom-4 left-4 text-white">
                         <h3 class="text-2xl font-bold">Perayaan Pernikahan</h3>
@@ -159,7 +160,7 @@
             <!-- Service 2 -->
             <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
                 <div class="relative h-64 overflow-hidden">
-                    <img src="/api/placeholder/600/400" alt="Acara Korporat" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <img src="assets\img_web\korporat.jpg" alt="Acara Korporat" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="absolute bottom-4 left-4 text-white">
                         <h3 class="text-2xl font-bold">Acara Korporat</h3>
@@ -199,7 +200,7 @@
             <!-- Service 3 -->
             <div class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
                 <div class="relative h-64 overflow-hidden">
-                    <img src="/api/placeholder/600/400" alt="Pesta Pribadi" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <img src="assets\img_web\pesta.jpg" alt="Pesta Pribadi" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div class="absolute bottom-4 left-4 text-white">
                         <h3 class="text-2xl font-bold">Pesta Pribadi</h3>
@@ -251,17 +252,11 @@
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-8">
             @for ($i = 1; $i <= 3; $i++)
             <div class="group relative overflow-hidden rounded-2xl shadow-lg aspect-square" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
-                <img src="/api/placeholder/600/600" alt="Acara {{ $i }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700">
+                <img src="assets\img_web\resepsi pernikahan.jpg" alt="Acara {{ $i }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <div class="absolute bottom-0 left-0 right-0 p-6">
                         <h3 class="text-xl font-bold text-white mb-2">Resepsi Pernikahan Elegan</h3>
                         <p class="text-gray-300 text-sm">Perayaan indah di Garden Villa</p>
-                        <a href="/galeri" class="inline-flex items-center text-white mt-4 font-medium hover:text-red-200 transition-colors">
-                            Lihat Galeri
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -295,7 +290,7 @@
                     </svg>
                     <p class="text-gray-600 mb-8 text-lg leading-relaxed">"Perhatian terhadap detail dan kualitas layanan yang diberikan sangat luar biasa. Tamu pernikahan kami tidak berhenti memuji makanannya!"</p>
                     <div class="flex items-center">
-                        <img src="/api/placeholder/100/100" alt="Klien {{ $i }}" class="w-14 h-14 rounded-full object-cover ring-4 ring-red-50">
+                        <img src="assets\img_web\tes.jpg" alt="Klien {{ $i }}" class="w-14 h-14 rounded-full object-cover ring-4 ring-red-50">
                         <div class="ml-4">
                             <h4 class="font-bold text-gray-900">Sarah & Michael</h4>
                             <p class="text-red-600">Resepsi Pernikahan</p>

@@ -272,7 +272,7 @@
                     <div class="grid grid-cols-2 gap-4">
                         @foreach(range(1, 4) as $index)
                             <div class="aspect-square overflow-hidden rounded-lg">
-                                <img src="{{ asset('images/gallery-' . $index . '.jpg') }}" 
+                                <img src="{{ asset('assets/img_web/gm' . $index . '.jpg') }}" alt="Gambar Galeri">
                                      alt="Galeri Masakan {{ $index }}"
                                      class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
                             </div>
