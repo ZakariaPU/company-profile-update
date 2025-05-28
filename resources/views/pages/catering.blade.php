@@ -104,10 +104,10 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             @foreach(['Nusantara Hype', 'Nusantara Fit', 'Healthy Lite', 'Healthy Gourmet'] as $menu)
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all">
-                <img src="/api/placeholder/400/300" alt="{{ $menu }}" class="w-full h-48 object-cover">
+                <img src="assets\img_web\healthy_gourmet.jpg" alt="{{ $menu }}" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-red-900 mb-2">{{ $menu }}</h3>
-                    <p class="text-gray-600 text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="text-gray-600 text-sm mb-4">Hidangan Nikmat Kaya Rasa Hanya di Resap Kitchen.</p>
                     <div class="flex items-center text-red-900">
                         <i class="fas fa-star mr-1"></i>
                         <span class="font-medium">4.9</span>
@@ -306,7 +306,7 @@
             </div>
 
             <!-- FAQ Item 2 -->
-            <div class="faq-item bg-white rounded-lg overflow-hidden">
+            {{-- <div class="faq-item bg-white rounded-lg overflow-hidden">
                 <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-rose-50 transition-colors" onclick="toggleFAQ(this)">
                     <span class="font-medium text-rose-900 text-lg">Berapa lama pengiriman?</span>
                     <div class="faq-arrow text-rose-600">
@@ -345,7 +345,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- FAQ Item 3 -->
             <div class="faq-item bg-white rounded-lg overflow-hidden">
@@ -413,7 +413,7 @@
             </div>
 
             <!-- FAQ Item 4 -->
-            <div class="faq-item bg-white rounded-lg overflow-hidden">
+            {{-- <div class="faq-item bg-white rounded-lg overflow-hidden">
                 <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-rose-50 transition-colors" onclick="toggleFAQ(this)">
                     <span class="font-medium text-rose-900 text-lg">Bagaimana kebijakan pengembalian barang?</span>
                     <div class="faq-arrow text-rose-600">
@@ -463,10 +463,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- FAQ Item 5 -->
-            <div class="faq-item bg-white rounded-lg overflow-hidden">
+            {{-- <div class="faq-item bg-white rounded-lg overflow-hidden">
                 <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-rose-50 transition-colors" onclick="toggleFAQ(this)">
                     <span class="font-medium text-rose-900 text-lg">Apakah ada garansi untuk produk?</span>
                     <div class="faq-arrow text-rose-600">
@@ -507,7 +507,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 

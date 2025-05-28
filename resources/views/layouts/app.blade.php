@@ -92,7 +92,7 @@
                 <a href="/blog" class="block px-4 py-3 text-base font-medium text-gray-800 hover:bg-red-50 hover:text-red-900 rounded-xl transition-all duration-200">
                     <i class="fas fa-blog mr-2"></i>Blog
                 </a>
-                <a href="/contact" class="block px-4 py-3 text-base font-medium bg-red-900 text-white rounded-xl hover:bg-red-800 transition-all duration-200">
+                <a href="/catering" class="block px-4 py-3 text-base font-medium bg-red-900 text-white rounded-xl hover:bg-red-800 transition-all duration-200">
                     <i class="fas fa-shopping-cart mr-2"></i>Order Now
                 </a>
             </div>
