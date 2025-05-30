@@ -24,7 +24,7 @@
                     Rasakan perpaduan sempurna antara rasa, penyajian, dan pelayanan. Kami mengubah acara Anda menjadi perjalanan kuliner yang luar biasa.
                 </p>
                 <div class="flex flex-wrap gap-6">
-                    <a href="/layanan" class="group px-8 py-4 bg-white text-red-600 rounded-lg font-semibold hover:bg-red-50 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                    <a href="/services" class="group px-8 py-4 bg-white text-red-600 rounded-lg font-semibold hover:bg-red-50 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
                         <span class="flex items-center">
                             Jelajahi Menu
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -32,7 +32,7 @@
                             </svg>
                         </span>
                     </a>
-                    <a href="/kontak" class="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                    <a href="https://wa.me/628112658048" target="_blank" class="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
                         Minta Penawaran
                     </a>
                 </div>
@@ -148,7 +148,7 @@
                             Setup lengkap dan pembersihan
                         </li>
                     </ul>
-                    <a href="/layanan/pernikahan" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
+                    <a href="https://wa.me/628112658048" target = "blank" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
                         Pelajari Lebih Lanjut
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -188,7 +188,7 @@
                             Paket korporat
                         </li>
                     </ul>
-                    <a href="/layanan/korporat" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
+                    <a href="https://wa.me/628112658048" target = "blank" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
                         Pelajari Lebih Lanjut
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -228,7 +228,7 @@
                             Perencanaan acara lengkap
                         </li>
                     </ul>
-                    <a href="/layanan/pesta-pribadi" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
+                    <a href="https://wa.me/628112658048" target = "blank" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
                         Pelajari Lebih Lanjut
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>

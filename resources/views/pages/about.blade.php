@@ -258,9 +258,9 @@
                     <div>
                         <h2 class="text-3xl font-bold text-gray-900 mb-4">Siap Untuk Merasakan Kelezatan Masakan Sehat?</h2>
                         <p class="text-lg text-gray-600 mb-8">Mari berkolaborasi untuk menjadikan acara Anda berikutnya benar-benar berkesan dengan catering terbaik di Yogyakarta.</p>
-                        <button class="bg-red-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-red-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
+                        <a href="https://wa.me/628112658048" target = "blank" class="bg-red-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-red-700 transform hover:scale-105 transition-all duration-300 shadow-lg inline-block text-center">
                             Hubungi Kami Sekarang
-                        </button>
+                        </a>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         @foreach(range(1, 4) as $index)

@@ -292,16 +292,16 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold text-white mb-4" data-aos="fade-up">Siap Memesan?</h2>
         <p class="text-xl text-red-100 mb-8" data-aos="fade-up" data-aos-delay="100">
-            Hubungi kami sekarang untuk menikmati hidangan spesial kami
+            Pesan sekarang untuk menikmati hidangan spesial kami
         </p>
         <div class="flex justify-center gap-4">
             <a href="/catering" class="inline-flex items-center px-8 py-4 bg-white text-red-900 rounded-lg hover:bg-red-50 transition-colors font-bold">
-                Hubungi Kami
+                Pesan Sekarang
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                 </svg>
             </a>
-            <a href="/" class="inline-flex items-center px-8 py-4 bg-red-800 text-white rounded-lg hover:bg-red-700 transition-colors font-bold">
+            <a href="/services" class="inline-flex items-center px-8 py-4 bg-red-800 text-white rounded-lg hover:bg-red-700 transition-colors font-bold">
                 Lihat Menu
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
